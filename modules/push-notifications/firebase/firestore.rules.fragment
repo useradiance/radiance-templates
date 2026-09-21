@@ -1,0 +1,4 @@
+// Push tokens are private to the device owner; only the backend fans out from them.
+match /users/{userId}/devices/{deviceId} {
+  allow read, write: if isOwner(userId);
+}

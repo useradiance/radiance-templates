@@ -1,0 +1,54 @@
+{
+  "id": "functions",
+  "version": "0.3.0",
+  "title": "Cloud Functions backend",
+  "description": "TypeScript Cloud Functions (2nd gen) project with callable/HTTP/trigger/scheduled layout, shared error codes, notifyUser push helper, idempotency helpers, cleanup sample and emulator wiring. Uses yarn.",
+  "side": "functions",
+  "capabilities": [
+    "serverless",
+    "cloud-functions",
+    "backend",
+    "callable-functions",
+    "http-endpoints",
+    "scheduled-jobs",
+    "webhooks",
+    "secrets",
+    "idempotency"
+  ],
+  "requires": [],
+  "dependencies": {},
+  "scripts": {
+    "functions:build": "yarn --cwd functions build",
+    "functions:serve": "firebase emulators:start --only functions,firestore,auth",
+    "functions:test": "yarn --cwd functions test"
+  },
+  "firebase": {
+    "services": [
+      "cloudfunctions.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "artifactregistry.googleapis.com",
+      "run.googleapis.com",
+      "eventarc.googleapis.com",
+      "secretmanager.googleapis.com"
+    ],
+    "emulators": {
+      "functions": { "port": 5001 }
+    },
+    "config": {
+      "functions": {
+        "source": "functions",
+        "codebase": "default",
+        "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" build"],
+        "ignore": ["node_modules", ".git", "*.local", "src"]
+      }
+    }
+  },
+  "notes": [
+    "Cloud Functions require the Blaze (pay as you go) plan.",
+    "Functions use yarn (same as the app). Run `yarn --cwd functions install`.",
+    "Export every function from functions/src/index.ts between the radiance:functions markers.",
+    "See scheduled/cleanupStaleDocs.ts for an onSchedule + batch delete pattern.",
+    "notifyUser / notifyUsers in lib/notify.ts send Expo push and FCM to users/{uid}/devices.",
+    "Wrap side-effecting handlers in runOnce() from lib/idempotency.ts."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "common": {
+    "appName": "{{radiance.appName}}",
+    "loading": "Loading…",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "search": "Search",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "offline": "You are offline. Changes will sync when you reconnect."
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "We could not reach the server. Check your connection.",
+    "notFound": "We could not find what you were looking for.",
+    "permissionDenied": "You do not have access to this."
+  }
+}

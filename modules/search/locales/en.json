@@ -1,0 +1,10 @@
+{
+  "search": {
+    "label": "Search",
+    "placeholder": "Search…",
+    "empty": "No results",
+    "people": "People",
+    "posts": "Posts",
+    "channels": "Channels"
+  }
+}

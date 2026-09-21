@@ -1,0 +1,12 @@
+{
+  "api": {
+    "errors": {
+      "unauthenticated": "Please sign in and try again.",
+      "permissionDenied": "You do not have permission to do that.",
+      "invalidArgument": "Some of the information sent was not valid.",
+      "alreadyExists": "That already exists.",
+      "quotaExceeded": "You have reached your plan limit.",
+      "failedPrecondition": "Something needs to be set up before this can run."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+// Personal profile documents. Email is the only credential; there is no username.
+match /users/{userId} {
+  allow read: if isSignedIn();
+  allow create: if isOwner(userId) && request.resource.data.uid == userId;
+  allow update: if isOwner(userId) && request.resource.data.uid == resource.data.uid;
+  allow delete: if false;
+}

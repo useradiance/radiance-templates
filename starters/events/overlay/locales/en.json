@@ -1,0 +1,31 @@
+{
+  "events": {
+    "title": "Events",
+    "subtitle": "Coming up",
+    "rsvp": "RSVP",
+    "rsvped": "You're going",
+    "share": "Share",
+    "buyTicket": "Buy ticket",
+    "ticketError": "Ticket checkout failed.",
+    "ticketHint": "Show this at the door",
+    "empty": "No events yet",
+    "mine": "My events",
+    "mineSubtitle": "You are going",
+    "host": "Host",
+    "hostSubtitle": "Create events and scan tickets",
+    "eventTitle": "Title",
+    "eventDescription": "Description",
+    "venue": "Venue",
+    "startsAt": "Starts at (local)",
+    "publishEvent": "Publish event",
+    "created": "Event published",
+    "createFailed": "Could not create event",
+    "invalidWhen": "Use a valid date and time",
+    "yourEvents": "Your events",
+    "noHosted": "You have not hosted anything yet",
+    "door": "Door",
+    "invalidTicket": "Not a Radiance ticket",
+    "noRsvp": "No RSVP for this ticket",
+    "admitted": "Admitted · {{eventId}}"
+  }
+}

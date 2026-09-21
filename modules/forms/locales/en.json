@@ -1,0 +1,8 @@
+{
+  "forms": {
+    "required": "This field is required",
+    "invalidEmail": "Enter a valid email address",
+    "minLength": "Must be at least {{count}} characters",
+    "maxLength": "Must be at most {{count}} characters"
+  }
+}

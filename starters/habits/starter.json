@@ -1,0 +1,30 @@
+{
+  "id": "habits",
+  "version": "0.2.1",
+  "extends": "expo-app",
+  "title": "Habits",
+  "description": "Daily habit tracking with streaks, history calendar, and local reminders.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "push-notifications",
+    "calendar",
+    "analytics",
+    "hosting"
+  ],
+  "overlay": "overlay",
+  "capabilities": ["habits", "streaks", "check-in", "daily-goals"],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "citrus"
+  }
+}

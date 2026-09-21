@@ -1,0 +1,42 @@
+{
+  "id": "locale-picker",
+  "version": "0.1.0",
+  "title": "Locale picker",
+  "description": "Language preference in Settings with system / explicit locale switching via i18n.",
+  "side": "app",
+  "capabilities": ["locale-picker", "language-settings", "multi-language"],
+  "requires": ["i18n", "theme", "navigation"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "app/(app)/(tabs)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { LocaleSettingsSection } from '@/components/i18n/LocaleSettingsSection';"
+        ],
+        "block": "<LocaleSettingsSection />"
+      },
+      {
+        "file": "app/(app)/(drawer)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { LocaleSettingsSection } from '@/components/i18n/LocaleSettingsSection';"
+        ],
+        "block": "<LocaleSettingsSection />"
+      },
+      {
+        "file": "app/(app)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { LocaleSettingsSection } from '@/components/i18n/LocaleSettingsSection';"
+        ],
+        "block": "<LocaleSettingsSection />"
+      }
+    ]
+  },
+  "notes": [
+    "Install automatically when init selects multiple locales, or add with `radiance add locale-picker`.",
+    "Preference is persisted with MMKV (from the theme module)."
+  ]
+}

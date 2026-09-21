@@ -1,0 +1,36 @@
+{
+  "id": "roles",
+  "version": "0.1.0",
+  "title": "Roles & custom claims",
+  "description": "Admin-gated setUserClaims callable, client useClaims / RequireRole helpers, and Firestore rules helpers for request.auth.token.role.",
+  "side": "both",
+  "capabilities": ["roles", "custom-claims", "rbac", "admin", "permissions", "authorization"],
+  "requires": ["auth", "functions", "callable-client", "i18n", "theme"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { setUserClaims } from './callable/setUserClaims';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "setUserClaims: {\n    request: { uid: string; role: string | null };\n    response: { ok: true };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "functions": ["setUserClaims"]
+  },
+  "notes": [
+    "Bootstrap the first admin with `radiance add admin` (open /admin) or via Firebase Admin CLI.",
+    "Client checks are UX only; enforce roles in security rules and callables."
+  ]
+}

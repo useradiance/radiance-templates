@@ -1,0 +1,4 @@
+match /habits/{id} {
+  allow read, update, delete: if isSignedIn() && resource.data.ownerId == request.auth.uid;
+  allow create: if isSignedIn() && request.resource.data.ownerId == request.auth.uid;
+}

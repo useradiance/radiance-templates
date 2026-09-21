@@ -1,0 +1,7 @@
+{
+  "invites": {
+    "accepting": "Joining…",
+    "acceptingHint": "Accepting your invite.",
+    "failed": "This invite is invalid or already used."
+  }
+}

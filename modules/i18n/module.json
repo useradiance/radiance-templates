@@ -1,0 +1,35 @@
+{
+  "id": "i18n",
+  "version": "0.1.0",
+  "title": "Internationalisation & localisation",
+  "description": "i18next + react-i18next wired to the device locale, with a translation resource registry and formatting helpers.",
+  "side": "app",
+  "capabilities": [
+    "i18n",
+    "localization",
+    "translations",
+    "multi-language",
+    "rtl",
+    "date-formatting",
+    "number-formatting",
+    "currency-formatting"
+  ],
+  "requires": [],
+  "dependencies": {
+    "expo-localization": "~57.0.1",
+    "i18next": "^26.3.6",
+    "react-i18next": "^17.0.11"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { I18nProvider } from '@/lib/i18n';",
+        "component": "I18nProvider"
+      }
+    ]
+  },
+  "notes": [
+    "All user-facing copy must be added to locales/en.json and rendered with t('key').",
+    "Add a language by dropping locales/<code>.json in place and registering it between the radiance:locales markers in lib/i18n.tsx."
+  ]
+}

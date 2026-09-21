@@ -1,0 +1,12 @@
+{
+  "forceUpdate": {
+    "title": "Update required",
+    "description": "Version {{minVersion}} or newer is required (you have {{installed}}).",
+    "cta": "Update now",
+    "ctaSimulate": "Simulate update",
+    "devHint": "Debug build — this dismisses the gate without opening the store.",
+    "simulated": "Update simulated — continuing.",
+    "missingStore": "No store link is configured yet.",
+    "openFailed": "Couldn't open the update link. Try again from a device build."
+  }
+}

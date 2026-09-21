@@ -1,0 +1,8 @@
+match /locations/{id} {
+  allow read: if true;
+  allow write: if false;
+}
+match /contactMessages/{id} {
+  allow create: if true;
+  allow read, update, delete: if false;
+}

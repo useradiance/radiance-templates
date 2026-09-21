@@ -1,0 +1,15 @@
+match /workspaces/{id} {
+  function isWorkspaceMember() {
+    return isSignedIn() && (
+      resource.data.ownerId == request.auth.uid
+      || (resource.data.keys().hasAll(['memberIds'])
+        && request.auth.uid in resource.data.memberIds)
+    );
+  }
+
+  allow read: if isWorkspaceMember();
+  allow create: if isSignedIn()
+    && request.resource.data.ownerId == request.auth.uid
+    && request.auth.uid in request.resource.data.memberIds;
+  allow update, delete: if isSignedIn() && resource.data.ownerId == request.auth.uid;
+}

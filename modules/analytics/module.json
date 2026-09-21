@@ -1,0 +1,44 @@
+{
+  "id": "analytics",
+  "version": "0.2.3",
+  "title": "Analytics",
+  "description": "Event and screen tracking: Firebase Analytics on web, @react-native-firebase/analytics on native (development build).",
+  "side": "app",
+  "capabilities": [
+    "analytics",
+    "event-tracking",
+    "screen-tracking",
+    "product-metrics",
+    "rnfirebase-analytics"
+  ],
+  "requires": [],
+  "dependencies": {
+    "@react-native-firebase/app": "^26.1.0",
+    "@react-native-firebase/analytics": "^26.1.0",
+    "expo-build-properties": "~57.0.9"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { AnalyticsProvider } from '@/lib/analytics-provider';",
+        "component": "AnalyticsProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "['@react-native-firebase/app', { ios: { disableSPM: true } }],\n    ['expo-build-properties', { ios: { useFrameworks: 'static', forceStaticLinking: ['RNFBApp', 'RNFBAnalytics', 'RNFBRemoteConfig', 'RNFBCrashlytics', 'RNFBPerf', 'RNFBAppCheck', 'RNFBFirestore', 'RNFBAuth', 'RNFBMessaging'] } }],"
+      }
+    ]
+  },
+  "firebase": {
+    "services": ["firebase.googleapis.com"]
+  },
+  "notes": [
+    "Web analytics needs EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID in .env.",
+    "Native uses analytics.native.ts via Metro platform resolution; requires a development build.",
+    "Scaffold app.config points at ./google-services.json and ./GoogleService-Info.plist \u2014 radiance setup firebase downloads them.",
+    "iOS uses CocoaPods Firebase (disableSPM) with static frameworks \u2014 required on Xcode 26+; SPM + dynamic hits SwiftUICore linker errors."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "productivity",
+  "version": "0.4.0",
+  "extends": "expo-app",
+  "title": "Productivity app",
+  "description": "Projects and tasks with cascade delete, comments, invite links, and collaborator roles.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "callable-client",
+    "functions",
+    "hosting",
+    "push-notifications",
+    "roles",
+    "comments",
+    "invites",
+    "deep-linking",
+    "share",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": [
+    "tasks",
+    "todo",
+    "projects",
+    "checklists",
+    "productivity",
+    "offline-editing",
+    "collaboration"
+  ],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "neutral"
+  }
+}

@@ -1,0 +1,26 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Privilege separation:
+    // - Clients may read/write their own documents where a module allows it.
+    // - Cross-user mutations belong in Cloud Functions (Admin SDK); keep those
+    //   paths `allow write: if false` so only the backend can mutate them.
+
+    // radiance:rules:start
+    // radiance:rules:end
+
+    // Anything a module has not explicitly allowed stays closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

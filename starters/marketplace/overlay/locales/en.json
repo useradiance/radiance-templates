@@ -1,0 +1,17 @@
+{
+  "marketplace": {
+    "browse": "Browse",
+    "browseSubtitle": "Find something great",
+    "sell": "Sell",
+    "sellSubtitle": "List an item",
+    "loading": "Loading…",
+    "empty": "No listings yet",
+    "title": "Title",
+    "description": "Description",
+    "price": "Price",
+    "publish": "Publish",
+    "buy": "Buy with Stripe",
+    "buyError": "Checkout failed. Try again.",
+    "saved": "Saved"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "firestore",
+  "version": "0.2.0",
+  "title": "Firestore data layer",
+  "description": "Cloud Firestore client with local caching, realtime hooks (status/fromCache), optimistic mutations, sync UI, and an optional RNFirebase native persistence path.",
+  "side": "app",
+  "capabilities": [
+    "database",
+    "nosql",
+    "firestore",
+    "realtime",
+    "offline-first",
+    "optimistic-updates",
+    "crud",
+    "collections",
+    "sync-status",
+    "rnfirebase-firestore"
+  ],
+  "requires": ["i18n", "theme"],
+  "dependencies": {},
+  "options": {
+    "nativePersistence": {
+      "description": "Native cache strategy. `rnfirebase` enables cross-restart disk persistence (dev client).",
+      "type": "single",
+      "choices": ["memory", "rnfirebase"],
+      "default": "memory"
+    }
+  },
+  "optionBindings": {
+    "nativePersistence": {
+      "memory": {},
+      "rnfirebase": {
+        "dependencies": {
+          "@react-native-firebase/app": "^26.1.0",
+          "@react-native-firebase/firestore": "^26.1.0"
+        },
+        "files": "variants/rnfirebase"
+      }
+    }
+  },
+  "firebase": {
+    "services": ["firestore.googleapis.com", "firebaserules.googleapis.com"],
+    "emulators": {
+      "firestore": { "port": 8080 }
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "notes": [
+    "All writes should go through optimisticUpdate() so the UI reflects changes before the server confirms them.",
+    "Default native persistence is in-memory (JS SDK). Choose `--option nativePersistence=rnfirebase` for cross-restart disk cache (not Expo Go).",
+    "Hooks expose status: pending|success|error plus fromCache for offline-aware UI."
+  ]
+}

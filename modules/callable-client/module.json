@@ -1,0 +1,19 @@
+{
+  "id": "callable-client",
+  "version": "0.2.0",
+  "title": "Typed callable client",
+  "description": "Typed wrappers around httpsCallable with translated error codes, retries, selective emulator flags, logging and logout events on unauthenticated failures.",
+  "side": "app",
+  "capabilities": ["callable-client", "api-client", "api-errors", "backend-calls"],
+  "requires": ["i18n"],
+  "dependencies": {},
+  "firebase": {
+    "emulators": {
+      "functions": { "port": 5001 }
+    }
+  },
+  "notes": [
+    "Never call Cloud Functions with raw fetch — go through lib/callable.ts so errors stay translated.",
+    "Declare each function's request/response types in lib/callable-contracts.ts between the radiance:contracts markers."
+  ]
+}

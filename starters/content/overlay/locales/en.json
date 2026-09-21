@@ -1,0 +1,27 @@
+{
+  "content": {
+    "articles": "Stories",
+    "articlesSubtitle": "Long reads for a slow afternoon",
+    "bookmarks": "Bookmarks",
+    "noBookmarks": "No bookmarks yet",
+    "bookmark": "Bookmark",
+    "unbookmark": "Remove bookmark",
+    "write": "Write",
+    "writeSubtitle": "Drafts stay private until you publish",
+    "fieldTitle": "Title",
+    "fieldExcerpt": "Standfirst",
+    "fieldBody": "Body",
+    "addCover": "Add cover",
+    "saveDraft": "Save draft",
+    "publish": "Publish",
+    "published": "Published",
+    "draftSaved": "Draft saved",
+    "saveFailed": "Could not save",
+    "signInToWrite": "Sign in to write",
+    "yourPieces": "Your pieces",
+    "noDrafts": "Nothing in the drawer yet",
+    "statusDraft": "Draft",
+    "statusPublished": "Published",
+    "open": "Open"
+  }
+}

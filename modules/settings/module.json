@@ -1,0 +1,49 @@
+{
+  "id": "settings",
+  "version": "0.1.1",
+  "title": "Settings shell",
+  "description": "Shared settings sections for appearance and account chrome. Composes with locale-picker and auth markers on the navigation settings screens.",
+  "side": "app",
+  "capabilities": [
+    "settings",
+    "preferences",
+    "account-settings",
+    "appearance-settings",
+    "settings-shell"
+  ],
+  "requires": ["i18n", "theme", "navigation"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "app/(app)/(tabs)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AppearanceSettingsSection } from '@/components/settings/AppearanceSettingsSection';"
+        ],
+        "block": "<AppearanceSettingsSection />"
+      },
+      {
+        "file": "app/(app)/(drawer)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AppearanceSettingsSection } from '@/components/settings/AppearanceSettingsSection';"
+        ],
+        "block": "<AppearanceSettingsSection />"
+      },
+      {
+        "file": "app/(app)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AppearanceSettingsSection } from '@/components/settings/AppearanceSettingsSection';"
+        ],
+        "block": "<AppearanceSettingsSection />"
+      }
+    ]
+  },
+  "notes": [
+    "Appearance uses the theme module appearance store (MMKV).",
+    "Auth and locale-picker splice their own sections into the same radiance:settings markers.",
+    "Use SettingsLayout for two-column Settings screens so phone ScrollView does not overlap sections."
+  ]
+}

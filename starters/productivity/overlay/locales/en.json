@@ -1,0 +1,25 @@
+{
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Capture work, then knock out the tasks",
+    "newProject": "Name this project",
+    "create": "Create project",
+    "openTasks": "{{count}} open tasks",
+    "emptyTitle": "No projects yet",
+    "emptyDescription": "Start with a name — tasks live inside each project.",
+    "selectProject": "Select a project to see its tasks",
+    "invite": "Invite",
+    "inviteMessage": "Join {{name}} on Radiance",
+    "inviteReady": "Invite ready to share",
+    "inviteFailed": "Could not create invite",
+    "delete": "Delete project",
+    "deleted": "Project deleted"
+  },
+  "tasks": {
+    "title": "Tasks",
+    "newTask": "What needs doing?",
+    "add": "Add task",
+    "emptyTitle": "Nothing on the list",
+    "emptyDescription": "Add a task above to get moving."
+  }
+}

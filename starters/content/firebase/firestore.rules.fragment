@@ -1,0 +1,6 @@
+match /articles/{id} {
+  allow read: if resource.data.status == 'published'
+    || (isSignedIn() && resource.data.authorId == request.auth.uid);
+  allow create: if isSignedIn() && request.resource.data.authorId == request.auth.uid;
+  allow update, delete: if isSignedIn() && resource.data.authorId == request.auth.uid;
+}

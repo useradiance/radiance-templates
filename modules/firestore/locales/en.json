@@ -1,0 +1,6 @@
+{
+  "sync": {
+    "pendingWrites": "Saving your changes…",
+    "syncedAt": "Last synced {{time}}"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "theme",
+  "version": "0.6.3",
+  "title": "Theming & UI primitives",
+  "description": "Design tokens, Fraunces/DM Sans pairing, light/dark theming, and the UI kit every screen builds on — including DataTable, Dialog, Sheet, Toast, Select, MediaImage, and onboarding.",
+  "side": "app",
+  "capabilities": [
+    "theme",
+    "design-tokens",
+    "dark-mode",
+    "light-mode",
+    "styling",
+    "ui-components",
+    "buttons",
+    "forms",
+    "empty-states",
+    "loading-states",
+    "appearance-settings",
+    "responsive",
+    "breakpoints",
+    "mmkv",
+    "list",
+    "grid",
+    "datatable",
+    "data-grid",
+    "admin-grid",
+    "slider",
+    "switch",
+    "checkbox",
+    "progress",
+    "chips",
+    "onboarding",
+    "avatar",
+    "skeleton",
+    "dialog",
+    "sheet",
+    "toast",
+    "select",
+    "badge",
+    "image",
+    "fonts",
+    "haptics"
+  ],
+  "requires": ["i18n"],
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@expo-google-fonts/dm-sans": "^0.4.2",
+    "@expo-google-fonts/fraunces": "^0.4.1",
+    "@legendapp/list": "^3.3.5",
+    "@react-native-community/slider": "5.2.0",
+    "expo-font": "~57.0.1",
+    "expo-haptics": "~57.0.1",
+    "react-native-mmkv": "^4.3.2",
+    "react-native-nitro-modules": "^0.36.5"
+  },
+  "options": {
+    "pack": {
+      "description": "Colour palette used by the generated app.",
+      "type": "single",
+      "choices": [
+        "neutral",
+        "contrast",
+        "branded",
+        "ocean",
+        "ink",
+        "hearth",
+        "bloom",
+        "flare",
+        "paper",
+        "grove",
+        "violet",
+        "citrus",
+        "custom"
+      ],
+      "default": "neutral",
+      "mapsTo": "themePack"
+    }
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { ThemeProvider } from '@/lib/theme';",
+        "component": "ThemeProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "'expo-font',"
+      }
+    ]
+  },
+  "notes": [
+    "Screens must not hard-code colours, spacing, radii or font sizes — read them from the theme.",
+    "Prefer List/Grid (`@legendapp/list`) over raw FlatList for scrolling collections.",
+    "Prefer DataTable for admin/resource lists (column grid on desktop, stacked rows on phone). DataTable ships a freeform `q` filter, optional `filterable` columns, and drag-to-resize rows/columns. SplitView can `collapsible` the detail pane.",
+    "Sheet is a bottom sheet on phone and an anchored popup menu on desktop. Select and DataTable filter pickers use it.",
+    "Use AppHeader, SplitView, FeedLayout, CatalogLayout, MapListSplit, ReaderLayout, and MediaDetail for desktop vs phone layout — do not left-align a 720px column in an empty pane.",
+    "Appearance preference is persisted with react-native-mmkv v4 (requires react-native-nitro-modules and a development build).",
+    "Use useResponsive() for breakpoint-aware layout (desktop chrome at lg / ≥992px).",
+    "Inside app chrome, Screen/List default to the pane (width=full). Use feed/reader/form with FeedLayout, ReaderLayout, or auth screens. Pass align=\"center\" on standalone forms.",
+    "Switch palette with `radiance add theme --pack contrast` or by editing lib/theme/config.ts.",
+    "Custom packs from init land in lib/theme/packs/custom.ts and register via radiance:theme-packs markers."
+  ]
+}

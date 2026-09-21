@@ -1,0 +1,10 @@
+{
+  "id": "seo",
+  "version": "0.1.0",
+  "title": "SEO & web meta",
+  "description": "Expo Router Head helpers for titles, descriptions, and Open Graph tags on web exports.",
+  "side": "app",
+  "capabilities": ["seo", "meta-tags", "open-graph", "web-seo", "og-tags"],
+  "requires": ["hosting"],
+  "dependencies": {}
+}

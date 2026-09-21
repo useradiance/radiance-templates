@@ -1,0 +1,45 @@
+{
+  "id": "email",
+  "version": "0.2.0",
+  "title": "Transactional email",
+  "description": "Resend-shaped sendEmail callable plus onOrderPaid receipt when an order becomes paid.",
+  "side": "functions",
+  "capabilities": ["email", "transactional-email", "resend", "send-email", "notifications-email"],
+  "requires": ["functions"],
+  "dependencies": {},
+  "secrets": {
+    "RESEND_API_KEY": {
+      "description": "Resend API key (never EXPO_PUBLIC_)",
+      "required": true
+    }
+  },
+  "params": {
+    "EMAIL_FROM": {
+      "description": "Verified from address (e.g. Acme <noreply@example.com>)",
+      "required": true
+    }
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { sendEmail } from './callable/sendEmail';\nexport { onOrderPaid } from './triggers/onOrderPaid';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "sendEmail: {\n    request: { to: string; subject: string; html?: string; text?: string };\n    response: { ok: true; id?: string };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "functions": ["sendEmail", "onOrderPaid"]
+  },
+  "notes": [
+    "Production: firebase functions:secrets:set RESEND_API_KEY. EMAIL_FROM goes in functions/.env (defineString).",
+    "To swap Resend for SendGrid/Postmark: add a SENDGRID_API_KEY (or similar) secret and optional API base URL param; keep the callable contract stable."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "stripe",
+  "version": "0.2.0",
+  "title": "Stripe payments",
+  "description": "Checkout Session creation with variants, inventory, and discount codes; webhook marks orders paid and decrements stock.",
+  "side": "both",
+  "capabilities": [
+    "stripe",
+    "payments",
+    "checkout",
+    "payment-intent",
+    "webhooks",
+    "ecommerce-payments"
+  ],
+  "requires": ["i18n", "theme", "auth", "callable-client", "functions"],
+  "dependencies": {
+    "@stripe/stripe-react-native": "0.64.0"
+  },
+  "env": {
+    "EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key (pk_…)",
+      "required": true
+    }
+  },
+  "secrets": {
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret key (sk_…)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_…)",
+      "required": true
+    }
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { createCheckoutSession } from './callable/createCheckoutSession';\nexport { stripeWebhook } from './http/stripeWebhook';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "createCheckoutSession: {\n    request: { lineItems: { productId: string; quantity: number; variantId?: string }[]; discountCode?: string; successUrl: string; cancelUrl: string };\n    response: { sessionId: string; url: string };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "functions": ["createCheckoutSession", "stripeWebhook"]
+  },
+  "notes": [
+    "Production: firebase functions:secrets:set STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET.",
+    "Add `stripe` to functions/package.json dependencies (see functions notes in this module).",
+    "Prefer Checkout Sessions for one-time payments; omit payment_method_types for dynamic payment methods.",
+    "Never trust client totals — createCheckoutSession reloads prices from Firestore."
+  ]
+}

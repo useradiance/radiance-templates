@@ -1,0 +1,1535 @@
+{
+  "version": "0.3.0",
+  "expoSdk": 57,
+  "generatedAt": null,
+  "scaffold": {
+    "id": "expo-app",
+    "path": "scaffold/expo-app",
+    "version": "0.2.4",
+    "requiredModules": [
+      "i18n",
+      "theme",
+      "navigation",
+      "settings"
+    ]
+  },
+  "starters": [
+    {
+      "id": "booking",
+      "path": "starters/booking",
+      "version": "0.3.0",
+      "extends": "expo-app",
+      "title": "Booking",
+      "description": "Service appointments with RRULE availability slots, Stripe deposits, and push reminders.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "calendar",
+        "stripe",
+        "push-notifications",
+        "functions",
+        "callable-client",
+        "hosting",
+        "analytics",
+        "landing",
+        "onboarding-flow",
+        "demo-data"
+      ],
+      "capabilities": [
+        "booking",
+        "appointments",
+        "scheduling",
+        "reservations"
+      ],
+      "defaults": {
+        "themePack": "bloom"
+      }
+    },
+    {
+      "id": "community",
+      "path": "starters/community",
+      "version": "0.2.0",
+      "extends": "expo-app",
+      "title": "Community",
+      "description": "Forum channels with comments, search, push on replies, moderation, and roles.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "comments",
+        "search",
+        "moderation",
+        "roles",
+        "push-notifications",
+        "hosting",
+        "analytics",
+        "callable-client",
+        "functions",
+        "demo-data"
+      ],
+      "capabilities": [
+        "community",
+        "forum",
+        "channels",
+        "discussion"
+      ],
+      "defaults": {
+        "themePack": "violet"
+      }
+    },
+    {
+      "id": "content",
+      "path": "starters/content",
+      "version": "0.2.0",
+      "extends": "expo-app",
+      "title": "Content / CMS",
+      "description": "Article CMS with drafts, publishing, comments, search, bookmarks, SEO, and Hosting.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "storage",
+        "seo",
+        "hosting",
+        "analytics",
+        "search",
+        "comments",
+        "functions",
+        "callable-client",
+        "landing",
+        "demo-data"
+      ],
+      "capabilities": [
+        "content",
+        "cms",
+        "articles",
+        "blog",
+        "reader",
+        "bookmarks",
+        "publishing",
+        "comments"
+      ],
+      "defaults": {
+        "themePack": "paper"
+      }
+    },
+    {
+      "id": "e-commerce",
+      "path": "starters/e-commerce",
+      "version": "0.5.0",
+      "extends": "expo-app",
+      "title": "Storefront",
+      "description": "Product catalogue with variants, inventory, discounts, MMKV cart, Stripe Checkout, and order emails.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "storage",
+        "analytics",
+        "hosting",
+        "callable-client",
+        "functions",
+        "stripe",
+        "cart",
+        "search",
+        "email",
+        "deep-linking",
+        "landing",
+        "demo-data"
+      ],
+      "capabilities": [
+        "e-commerce",
+        "storefront",
+        "product-catalog",
+        "shopping-cart",
+        "checkout",
+        "orders",
+        "stripe",
+        "search"
+      ],
+      "defaults": {
+        "themePack": "contrast"
+      }
+    },
+    {
+      "id": "events",
+      "path": "starters/events",
+      "version": "0.2.0",
+      "extends": "expo-app",
+      "title": "Events",
+      "description": "Event listings with organizer UI, RSVP, QR door tickets, scheduled reminders, and optional Stripe tickets.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "calendar",
+        "stripe",
+        "push-notifications",
+        "deep-linking",
+        "share",
+        "barcode",
+        "hosting",
+        "analytics",
+        "callable-client",
+        "functions",
+        "demo-data"
+      ],
+      "capabilities": [
+        "events",
+        "rsvp",
+        "tickets",
+        "event-list"
+      ],
+      "defaults": {
+        "themePack": "flare"
+      }
+    },
+    {
+      "id": "habits",
+      "path": "starters/habits",
+      "version": "0.2.1",
+      "extends": "expo-app",
+      "title": "Habits",
+      "description": "Daily habit tracking with streaks, history calendar, and local reminders.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "push-notifications",
+        "calendar",
+        "analytics",
+        "hosting"
+      ],
+      "capabilities": [
+        "habits",
+        "streaks",
+        "check-in",
+        "daily-goals"
+      ],
+      "defaults": {
+        "themePack": "citrus"
+      }
+    },
+    {
+      "id": "local-business",
+      "path": "starters/local-business",
+      "version": "0.1.3",
+      "extends": "expo-app",
+      "title": "Local business",
+      "description": "Store locator with maps, places search, hours, and contact form.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "maps",
+        "places",
+        "hosting",
+        "seo",
+        "analytics",
+        "landing"
+      ],
+      "capabilities": [
+        "local-business",
+        "store-locator",
+        "contact",
+        "hours",
+        "directory"
+      ],
+      "defaults": {
+        "themePack": "grove"
+      }
+    },
+    {
+      "id": "marketplace",
+      "path": "starters/marketplace",
+      "version": "0.1.1",
+      "extends": "expo-app",
+      "title": "Marketplace",
+      "description": "Two-sided listings with search, maps, Stripe checkout, and seller roles.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "storage",
+        "stripe",
+        "search",
+        "roles",
+        "maps",
+        "analytics",
+        "hosting",
+        "callable-client",
+        "functions",
+        "demo-data"
+      ],
+      "capabilities": [
+        "marketplace",
+        "listings",
+        "buy-sell",
+        "classifieds",
+        "two-sided"
+      ],
+      "defaults": {
+        "themePack": "hearth"
+      }
+    },
+    {
+      "id": "messaging-app",
+      "path": "starters/messaging-app",
+      "version": "0.2.0",
+      "extends": "expo-app",
+      "title": "Messaging app",
+      "description": "Direct messages with threads, push notifications to other members, and deep links.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "storage",
+        "callable-client",
+        "functions",
+        "chat",
+        "push-notifications",
+        "deep-linking",
+        "analytics",
+        "hosting",
+        "demo-data"
+      ],
+      "capabilities": [
+        "messaging",
+        "chat",
+        "dm",
+        "inbox",
+        "conversations"
+      ],
+      "defaults": {
+        "themePack": "ocean"
+      }
+    },
+    {
+      "id": "productivity",
+      "path": "starters/productivity",
+      "version": "0.4.0",
+      "extends": "expo-app",
+      "title": "Productivity app",
+      "description": "Projects and tasks with cascade delete, comments, invite links, and collaborator roles.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "callable-client",
+        "functions",
+        "hosting",
+        "push-notifications",
+        "roles",
+        "comments",
+        "invites",
+        "deep-linking",
+        "share",
+        "demo-data"
+      ],
+      "capabilities": [
+        "tasks",
+        "todo",
+        "projects",
+        "checklists",
+        "productivity",
+        "offline-editing",
+        "collaboration"
+      ],
+      "defaults": {
+        "themePack": "neutral"
+      }
+    },
+    {
+      "id": "saas",
+      "path": "starters/saas",
+      "version": "0.1.4",
+      "extends": "expo-app",
+      "title": "SaaS workspace",
+      "description": "Workspaces with members, invites, Stripe subscriptions, settings, and remote-config gates.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "roles",
+        "subscriptions",
+        "settings",
+        "remote-config",
+        "hosting",
+        "functions",
+        "callable-client",
+        "analytics",
+        "landing",
+        "admin",
+        "deep-linking",
+        "invites",
+        "share",
+        "demo-data"
+      ],
+      "capabilities": [
+        "saas",
+        "workspace",
+        "teams",
+        "members",
+        "invites",
+        "subscription",
+        "billing",
+        "demo-data"
+      ],
+      "defaults": {
+        "themePack": "ink"
+      }
+    },
+    {
+      "id": "social-app",
+      "path": "starters/social-app",
+      "version": "0.6.0",
+      "extends": "expo-app",
+      "title": "Social app",
+      "description": "Social feed with accounts, image posts, likes, comments, follows, friends, search, share, and push/deep links.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "storage",
+        "callable-client",
+        "functions",
+        "analytics",
+        "hosting",
+        "push-notifications",
+        "deep-linking",
+        "comments",
+        "search",
+        "share",
+        "landing",
+        "onboarding-flow",
+        "demo-data"
+      ],
+      "capabilities": [
+        "social-feed",
+        "posts",
+        "likes",
+        "profiles",
+        "image-posts",
+        "timeline",
+        "comments",
+        "search",
+        "share",
+        "followers",
+        "friends"
+      ],
+      "defaults": {
+        "themePack": "branded"
+      }
+    },
+    {
+      "id": "warehouse",
+      "path": "starters/warehouse",
+      "version": "0.1.1",
+      "extends": "expo-app",
+      "title": "Warehouse",
+      "description": "Inventory admin with categories, items, warehouses, and on-hand stock. DataTable list/edit/delete with admin vs viewer RBAC.",
+      "modules": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "auth",
+        "roles",
+        "admin",
+        "search",
+        "barcode",
+        "demo-data",
+        "functions",
+        "callable-client",
+        "settings",
+        "hosting",
+        "analytics"
+      ],
+      "capabilities": [
+        "warehouse",
+        "inventory",
+        "stock",
+        "sku",
+        "barcode",
+        "admin-grid",
+        "datatable",
+        "crud",
+        "rbac",
+        "demo-data"
+      ],
+      "defaults": {
+        "themePack": "ink"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "id": "admin",
+      "path": "modules/admin",
+      "version": "0.1.2",
+      "title": "Admin console",
+      "description": "First-admin bootstrap, user directory, and role management. Pair with roles.",
+      "side": "both",
+      "capabilities": [
+        "admin",
+        "admin-console",
+        "first-admin",
+        "bootstrap-admin",
+        "user-management",
+        "moderation-inbox"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "navigation",
+        "auth",
+        "roles",
+        "firestore",
+        "functions",
+        "callable-client"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "analytics",
+      "path": "modules/analytics",
+      "version": "0.2.3",
+      "title": "Analytics",
+      "description": "Event and screen tracking: Firebase Analytics on web, @react-native-firebase/analytics on native (development build).",
+      "side": "app",
+      "capabilities": [
+        "analytics",
+        "event-tracking",
+        "screen-tracking",
+        "product-metrics",
+        "rnfirebase-analytics"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "app-check",
+      "path": "modules/app-check",
+      "version": "0.2.2",
+      "title": "App Check",
+      "description": "Firebase App Check: reCAPTCHA on web, App Attest / Play Integrity via RNFirebase on native.",
+      "side": "app",
+      "capabilities": [
+        "app-check",
+        "abuse-protection",
+        "attestation",
+        "bot-protection",
+        "rnfirebase-app-check"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "auth",
+      "path": "modules/auth",
+      "version": "0.2.5",
+      "title": "Authentication",
+      "description": "Firebase Authentication with email/Google/Apple/anonymous sign-in, password reset, optional enforced email verification, delete-account callable, and dual idempotent profile bootstrap.",
+      "side": "both",
+      "capabilities": [
+        "auth",
+        "authentication",
+        "login",
+        "signup",
+        "sign-in",
+        "email-password-auth",
+        "google-sign-in",
+        "apple-sign-in",
+        "anonymous-auth",
+        "guest-auth",
+        "password-reset",
+        "email-verification",
+        "delete-account",
+        "user-profile",
+        "session",
+        "sign-out",
+        "phone-auth",
+        "sms-auth"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "navigation",
+        "firestore",
+        "forms",
+        "callable-client"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "barcode",
+      "path": "modules/barcode",
+      "version": "0.2.2",
+      "title": "Barcode scanner",
+      "description": "Camera barcode / QR scanner plus QrCode display for tickets and invites.",
+      "side": "app",
+      "capabilities": [
+        "barcode",
+        "qr-code",
+        "scanner",
+        "inventory-scan",
+        "ticket-scan"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "biometrics",
+      "path": "modules/biometrics",
+      "version": "0.1.1",
+      "title": "Biometrics",
+      "description": "LocalAuthentication unlock / step-up with SecureStore-backed preference for requiring biometrics on launch.",
+      "side": "app",
+      "capabilities": [
+        "biometrics",
+        "face-id",
+        "touch-id",
+        "fingerprint",
+        "local-auth",
+        "app-lock"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "calendar",
+      "path": "modules/calendar",
+      "version": "0.3.1",
+      "title": "Calendar",
+      "description": "Month grid, RRULE availability slots, and scheduled event reminder pushes.",
+      "side": "both",
+      "capabilities": [
+        "calendar",
+        "events",
+        "scheduling",
+        "month-view",
+        "appointments",
+        "availability",
+        "rrule"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "firestore"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "callable-client",
+      "path": "modules/callable-client",
+      "version": "0.2.0",
+      "title": "Typed callable client",
+      "description": "Typed wrappers around httpsCallable with translated error codes, retries, selective emulator flags, logging and logout events on unauthenticated failures.",
+      "side": "app",
+      "capabilities": [
+        "callable-client",
+        "api-client",
+        "api-errors",
+        "backend-calls"
+      ],
+      "requires": [
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "cart",
+      "path": "modules/cart",
+      "version": "0.3.0",
+      "title": "Shopping cart",
+      "description": "MMKV-persisted cart with variant-aware lines, CartLineRow UI, totals, and helpers. Pair with stripe for checkout.",
+      "side": "app",
+      "capabilities": [
+        "cart",
+        "shopping-cart",
+        "basket",
+        "line-items",
+        "mmkv-cart"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "chat",
+      "path": "modules/chat",
+      "version": "0.4.1",
+      "title": "Chat / messaging",
+      "description": "1:1 and group threads with deferred attachments, timestamps, delivery receipts, long-press emoji reactions, member-scoped rules, and push fan-out to other members.",
+      "side": "both",
+      "capabilities": [
+        "chat",
+        "messaging",
+        "direct-messages",
+        "dm",
+        "threads",
+        "inbox",
+        "realtime-chat",
+        "attachments"
+      ],
+      "requires": [
+        "auth",
+        "firestore",
+        "i18n",
+        "theme",
+        "navigation",
+        "storage"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "comments",
+      "path": "modules/comments",
+      "version": "0.2.1",
+      "title": "Comments",
+      "description": "Polymorphic comments on any parent path with list UI, owner cascade delete, and push to the parent author.",
+      "side": "both",
+      "capabilities": [
+        "comments",
+        "discussion",
+        "replies",
+        "threaded-comments",
+        "feedback"
+      ],
+      "requires": [
+        "auth",
+        "firestore",
+        "forms",
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "connectivity",
+      "path": "modules/connectivity",
+      "version": "0.1.1",
+      "title": "Connectivity banner",
+      "description": "Online/offline NetInfo banner for network loss beyond Firestore sync state.",
+      "side": "app",
+      "capabilities": [
+        "connectivity",
+        "offline",
+        "network-status",
+        "offline-banner"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "consent",
+      "path": "modules/consent",
+      "version": "0.1.1",
+      "title": "Privacy consent",
+      "description": "Analytics / ATT consent gate with MMKV persistence and a web cookie-style banner component.",
+      "side": "app",
+      "capabilities": [
+        "consent",
+        "privacy",
+        "gdpr",
+        "att",
+        "cookie-banner",
+        "analytics-consent"
+      ],
+      "requires": [
+        "analytics",
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "crashlytics",
+      "path": "modules/crashlytics",
+      "version": "0.1.2",
+      "title": "Crash reporting",
+      "description": "Firebase Crashlytics for iOS and Android through React Native Firebase, with a no-op web implementation and error-boundary reporting.",
+      "side": "app",
+      "capabilities": [
+        "crashlytics",
+        "crash-reporting",
+        "error-reporting",
+        "stability"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "deep-linking",
+      "path": "modules/deep-linking",
+      "version": "0.1.0",
+      "title": "Deep linking",
+      "description": "Scheme and universal-link helpers that map incoming URLs and notification payloads to Expo Router navigations.",
+      "side": "app",
+      "capabilities": [
+        "deep-linking",
+        "universal-links",
+        "app-links",
+        "notification-routing"
+      ],
+      "requires": [
+        "navigation"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "demo-data",
+      "path": "modules/demo-data",
+      "version": "0.1.3",
+      "title": "Demo data",
+      "description": "Optional first-run seed so starters look alive. Gated by EXPO_PUBLIC_SEED_DEMO; not for production catalogues.",
+      "side": "both",
+      "capabilities": [
+        "demo-data",
+        "seed",
+        "sample-data",
+        "fixture-data",
+        "demo-content"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "auth",
+        "firestore",
+        "callable-client",
+        "functions"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "email",
+      "path": "modules/email",
+      "version": "0.2.0",
+      "title": "Transactional email",
+      "description": "Resend-shaped sendEmail callable plus onOrderPaid receipt when an order becomes paid.",
+      "side": "functions",
+      "capabilities": [
+        "email",
+        "transactional-email",
+        "resend",
+        "send-email",
+        "notifications-email"
+      ],
+      "requires": [
+        "functions"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "firestore",
+      "path": "modules/firestore",
+      "version": "0.2.0",
+      "title": "Firestore data layer",
+      "description": "Cloud Firestore client with local caching, realtime hooks (status/fromCache), optimistic mutations, sync UI, and an optional RNFirebase native persistence path.",
+      "side": "app",
+      "capabilities": [
+        "database",
+        "nosql",
+        "firestore",
+        "realtime",
+        "offline-first",
+        "optimistic-updates",
+        "crud",
+        "collections",
+        "sync-status",
+        "rnfirebase-firestore"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "force-update",
+      "path": "modules/force-update",
+      "version": "0.1.0",
+      "title": "Force update gate",
+      "description": "Blocks the app when the installed version is below Remote Config min_app_version, with a themed update screen.",
+      "side": "app",
+      "capabilities": [
+        "force-update",
+        "minimum-version",
+        "app-update-gate",
+        "version-check"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "remote-config"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "forms",
+      "path": "modules/forms",
+      "version": "0.1.1",
+      "title": "Forms (RHF + Zod)",
+      "description": "react-hook-form + Zod resolvers, shared FormField wiring to theme TextField, and helpers for translating validation errors.",
+      "side": "app",
+      "capabilities": [
+        "forms",
+        "validation",
+        "react-hook-form",
+        "zod",
+        "form-fields"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "functions",
+      "path": "modules/functions",
+      "version": "0.3.0",
+      "title": "Cloud Functions backend",
+      "description": "TypeScript Cloud Functions (2nd gen) project with callable/HTTP/trigger/scheduled layout, shared error codes, notifyUser push helper, idempotency helpers, cleanup sample and emulator wiring. Uses yarn.",
+      "side": "functions",
+      "capabilities": [
+        "serverless",
+        "cloud-functions",
+        "backend",
+        "callable-functions",
+        "http-endpoints",
+        "scheduled-jobs",
+        "webhooks",
+        "secrets",
+        "idempotency"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "hosting",
+      "path": "modules/hosting",
+      "version": "0.1.0",
+      "title": "Firebase Hosting (web)",
+      "description": "Static web deploys of the Expo web export to Firebase Hosting, with SPA rewrites and asset caching.",
+      "side": "app",
+      "capabilities": [
+        "hosting",
+        "static-hosting",
+        "firebase-hosting",
+        "web-deploy"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "i18n",
+      "path": "modules/i18n",
+      "version": "0.1.0",
+      "title": "Internationalisation & localisation",
+      "description": "i18next + react-i18next wired to the device locale, with a translation resource registry and formatting helpers.",
+      "side": "app",
+      "capabilities": [
+        "i18n",
+        "localization",
+        "translations",
+        "multi-language",
+        "rtl",
+        "date-formatting",
+        "number-formatting",
+        "currency-formatting"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "iap",
+      "path": "modules/iap",
+      "version": "0.1.1",
+      "title": "In-app purchases",
+      "description": "RevenueCat IAP helpers and a paywall screen. Native only — web shows a fallback.",
+      "side": "app",
+      "capabilities": [
+        "iap",
+        "in-app-purchase",
+        "revenuecat",
+        "paywall",
+        "app-store",
+        "play-billing"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "auth"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "in-app-review",
+      "path": "modules/in-app-review",
+      "version": "0.1.1",
+      "title": "In-app review",
+      "description": "Store review prompt with MMKV cooldown so users are not spammed.",
+      "side": "app",
+      "capabilities": [
+        "in-app-review",
+        "store-review",
+        "ratings",
+        "app-store-review"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "invites",
+      "path": "modules/invites",
+      "version": "0.2.0",
+      "title": "Invites",
+      "description": "Invite codes with create/accept callables for workspaces and projects, plus a deep-link entry route.",
+      "side": "both",
+      "capabilities": [
+        "invites",
+        "invite-codes",
+        "referrals",
+        "join-code",
+        "invitation"
+      ],
+      "requires": [
+        "auth",
+        "functions",
+        "deep-linking",
+        "callable-client",
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "landing",
+      "path": "modules/landing",
+      "version": "0.1.1",
+      "title": "Marketing landing",
+      "description": "Public web marketing routes (hero, features, footer). Unsigned web visitors land here instead of the sign-in screen.",
+      "side": "app",
+      "capabilities": [
+        "landing",
+        "marketing",
+        "marketing-pages",
+        "hero",
+        "footer",
+        "public-site",
+        "homepage"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "navigation"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "locale-picker",
+      "path": "modules/locale-picker",
+      "version": "0.1.0",
+      "title": "Locale picker",
+      "description": "Language preference in Settings with system / explicit locale switching via i18n.",
+      "side": "app",
+      "capabilities": [
+        "locale-picker",
+        "language-settings",
+        "multi-language"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "navigation"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "maps",
+      "path": "modules/maps",
+      "version": "0.1.1",
+      "title": "Maps",
+      "description": "Cross-platform map view (react-native-maps on native, Google Maps JS on web) with location permission helpers.",
+      "side": "app",
+      "capabilities": [
+        "maps",
+        "google-maps",
+        "location",
+        "map-markers",
+        "geolocation"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "media-picker",
+      "path": "modules/media-picker",
+      "version": "0.1.1",
+      "title": "Media picker",
+      "description": "Image, document, and camera capture helpers that hand local URIs to the storage upload pipeline.",
+      "side": "app",
+      "capabilities": [
+        "media-picker",
+        "image-picker",
+        "camera",
+        "document-picker",
+        "file-picker"
+      ],
+      "requires": [
+        "storage",
+        "theme",
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "moderation",
+      "path": "modules/moderation",
+      "version": "0.1.0",
+      "title": "Moderation",
+      "description": "User report flow and admin review queue protected by roles claims.",
+      "side": "both",
+      "capabilities": [
+        "moderation",
+        "report-content",
+        "abuse-report",
+        "review-queue",
+        "trust-safety"
+      ],
+      "requires": [
+        "roles",
+        "firestore",
+        "functions",
+        "auth",
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "navigation",
+      "path": "modules/navigation",
+      "version": "0.2.4",
+      "title": "Navigation & route groups",
+      "description": "Expo Router structure with signed-out `(auth)` and signed-in `(app)` groups, Ephytron-style AuthGate/GuestGate, and a selectable shell (tabs, drawer, or stack).",
+      "side": "app",
+      "capabilities": [
+        "navigation",
+        "routing",
+        "tabs",
+        "drawer",
+        "stack",
+        "route-guards",
+        "auth-gate",
+        "guest-gate",
+        "app-shell"
+      ],
+      "requires": [
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "onboarding-flow",
+      "path": "modules/onboarding-flow",
+      "version": "0.2.1",
+      "title": "Onboarding flow",
+      "description": "Post-signup multi-step onboarding using theme Onboarding primitives, with MMKV completion flag and route gate.",
+      "side": "app",
+      "capabilities": [
+        "onboarding",
+        "first-run",
+        "walkthrough",
+        "welcome-flow"
+      ],
+      "requires": [
+        "theme",
+        "navigation",
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "performance",
+      "path": "modules/performance",
+      "version": "0.1.3",
+      "title": "Performance Monitoring",
+      "description": "Firebase Performance Monitoring helpers for web and @react-native-firebase/perf on native.",
+      "side": "app",
+      "capabilities": [
+        "performance",
+        "perf-monitoring",
+        "traces",
+        "network-monitoring"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "places",
+      "path": "modules/places",
+      "version": "0.1.0",
+      "title": "Places & geofencing",
+      "description": "Google Places text search helpers and simple circular geofence enter/exit detection on top of the maps module.",
+      "side": "app",
+      "capabilities": [
+        "places",
+        "geofencing",
+        "place-search",
+        "nearby",
+        "check-in",
+        "location-fence"
+      ],
+      "requires": [
+        "maps",
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "presence",
+      "path": "modules/presence",
+      "version": "0.1.0",
+      "title": "Presence",
+      "description": "Online / last-seen heartbeat written to Firestore presence/{uid} while the app is foregrounded.",
+      "side": "app",
+      "capabilities": [
+        "presence",
+        "online-status",
+        "last-seen",
+        "heartbeat",
+        "active-now"
+      ],
+      "requires": [
+        "auth",
+        "firestore",
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "push-notifications",
+      "path": "modules/push-notifications",
+      "version": "0.2.0",
+      "title": "Push notifications",
+      "description": "Expo push notifications with self-only send callable, FCM helper for native tokens, permission flow, device registration and deep-link friendly tap handling.",
+      "side": "both",
+      "capabilities": [
+        "push-notifications",
+        "expo-push",
+        "fcm",
+        "notifications",
+        "device-tokens",
+        "alerts",
+        "reengagement"
+      ],
+      "requires": [
+        "auth",
+        "firestore",
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "remote-config",
+      "path": "modules/remote-config",
+      "version": "0.1.2",
+      "title": "Remote Config",
+      "description": "Firebase Remote Config with typed defaults, fetch-and-activate on launch, and a React provider for feature flags and kill switches.",
+      "side": "app",
+      "capabilities": [
+        "remote-config",
+        "feature-flags",
+        "kill-switch",
+        "experiments",
+        "dynamic-config"
+      ],
+      "requires": [],
+      "conflicts": []
+    },
+    {
+      "id": "roles",
+      "path": "modules/roles",
+      "version": "0.1.0",
+      "title": "Roles & custom claims",
+      "description": "Admin-gated setUserClaims callable, client useClaims / RequireRole helpers, and Firestore rules helpers for request.auth.token.role.",
+      "side": "both",
+      "capabilities": [
+        "roles",
+        "custom-claims",
+        "rbac",
+        "admin",
+        "permissions",
+        "authorization"
+      ],
+      "requires": [
+        "auth",
+        "functions",
+        "callable-client",
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "search",
+      "path": "modules/search",
+      "version": "0.2.0",
+      "title": "Search",
+      "description": "Debounced SearchAutocomplete dropdown, pluggable sources (local / cache / Firestore / API), prefix helpers, SearchField UI, optional Algolia client stub.",
+      "side": "app",
+      "capabilities": [
+        "search",
+        "full-text-search",
+        "prefix-search",
+        "algolia",
+        "discovery",
+        "filter"
+      ],
+      "requires": [
+        "firestore",
+        "i18n",
+        "theme"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "seo",
+      "path": "modules/seo",
+      "version": "0.1.0",
+      "title": "SEO & web meta",
+      "description": "Expo Router Head helpers for titles, descriptions, and Open Graph tags on web exports.",
+      "side": "app",
+      "capabilities": [
+        "seo",
+        "meta-tags",
+        "open-graph",
+        "web-seo",
+        "og-tags"
+      ],
+      "requires": [
+        "hosting"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "settings",
+      "path": "modules/settings",
+      "version": "0.1.1",
+      "title": "Settings shell",
+      "description": "Shared settings sections for appearance and account chrome. Composes with locale-picker and auth markers on the navigation settings screens.",
+      "side": "app",
+      "capabilities": [
+        "settings",
+        "preferences",
+        "account-settings",
+        "appearance-settings",
+        "settings-shell"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "navigation"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "share",
+      "path": "modules/share",
+      "version": "0.1.2",
+      "title": "Share",
+      "description": "Native share sheet helpers and web clipboard/URL copy with optional deep-link URL builder.",
+      "side": "app",
+      "capabilities": [
+        "share",
+        "share-sheet",
+        "clipboard",
+        "social-share",
+        "invite-link"
+      ],
+      "requires": [
+        "i18n"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "storage",
+      "path": "modules/storage",
+      "version": "0.2.1",
+      "title": "Cloud Storage & media uploads",
+      "description": "Firebase Storage client with resumable uploads, progress reporting, path-in-Firestore + download URL TTL cache, image picking and owner-scoped security rules.",
+      "side": "app",
+      "capabilities": [
+        "storage",
+        "file-upload",
+        "image-upload",
+        "media",
+        "avatars",
+        "attachments",
+        "download-urls",
+        "upload-progress",
+        "url-cache"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "auth"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "stripe",
+      "path": "modules/stripe",
+      "version": "0.2.0",
+      "title": "Stripe payments",
+      "description": "Checkout Session creation with variants, inventory, and discount codes; webhook marks orders paid and decrements stock.",
+      "side": "both",
+      "capabilities": [
+        "stripe",
+        "payments",
+        "checkout",
+        "payment-intent",
+        "webhooks",
+        "ecommerce-payments"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "auth",
+        "callable-client",
+        "functions"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "subscriptions",
+      "path": "modules/subscriptions",
+      "version": "0.1.0",
+      "title": "Stripe subscriptions",
+      "description": "Stripe Billing Portal session callable, subscription webhook handlers, and Firestore entitlement mirror for gated features.",
+      "side": "both",
+      "capabilities": [
+        "subscriptions",
+        "stripe-billing",
+        "recurring-payments",
+        "entitlements",
+        "billing-portal",
+        "saas-billing"
+      ],
+      "requires": [
+        "i18n",
+        "theme",
+        "auth",
+        "callable-client",
+        "functions"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "theme",
+      "path": "modules/theme",
+      "version": "0.6.3",
+      "title": "Theming & UI primitives",
+      "description": "Design tokens, Fraunces/DM Sans pairing, light/dark theming, and the UI kit every screen builds on — including DataTable, Dialog, Sheet, Toast, Select, MediaImage, and onboarding.",
+      "side": "app",
+      "capabilities": [
+        "theme",
+        "design-tokens",
+        "dark-mode",
+        "light-mode",
+        "styling",
+        "ui-components",
+        "buttons",
+        "forms",
+        "empty-states",
+        "loading-states",
+        "appearance-settings",
+        "responsive",
+        "breakpoints",
+        "mmkv",
+        "list",
+        "grid",
+        "datatable",
+        "data-grid",
+        "admin-grid",
+        "slider",
+        "switch",
+        "checkbox",
+        "progress",
+        "chips",
+        "onboarding",
+        "avatar",
+        "skeleton",
+        "dialog",
+        "sheet",
+        "toast",
+        "select",
+        "badge",
+        "image",
+        "fonts",
+        "haptics"
+      ],
+      "requires": [
+        "i18n"
+      ],
+      "conflicts": []
+    }
+  ]
+}

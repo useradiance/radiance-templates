@@ -1,0 +1,9 @@
+match /reports/{reportId} {
+  allow create: if isSignedIn() && request.resource.data.reporterId == request.auth.uid;
+  allow read: if isSignedIn() && (
+    resource.data.reporterId == request.auth.uid
+    || request.auth.token.admin == true
+    || request.auth.token.role == 'admin'
+  );
+  allow update, delete: if false;
+}

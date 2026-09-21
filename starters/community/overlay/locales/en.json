@@ -1,0 +1,10 @@
+{
+  "community": {
+    "channels": "Channels",
+    "channelsSubtitle": "Rooms you can actually finish a thought in",
+    "newThread": "New thread",
+    "post": "Post",
+    "thread": "Thread",
+    "selectChannel": "Pick a channel to read"
+  }
+}

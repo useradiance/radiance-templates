@@ -1,0 +1,20 @@
+{
+  "id": "connectivity",
+  "version": "0.1.1",
+  "title": "Connectivity banner",
+  "description": "Online/offline NetInfo banner for network loss beyond Firestore sync state.",
+  "side": "app",
+  "capabilities": ["connectivity", "offline", "network-status", "offline-banner"],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "@react-native-community/netinfo": "12.0.1"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { ConnectivityBanner } from '@/components/ConnectivityBanner';",
+        "component": "ConnectivityBanner"
+      }
+    ]
+  }
+}

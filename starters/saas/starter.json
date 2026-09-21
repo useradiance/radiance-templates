@@ -1,0 +1,49 @@
+{
+  "id": "saas",
+  "version": "0.1.4",
+  "extends": "expo-app",
+  "title": "SaaS workspace",
+  "description": "Workspaces with members, invites, Stripe subscriptions, settings, and remote-config gates.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "roles",
+    "subscriptions",
+    "settings",
+    "remote-config",
+    "hosting",
+    "functions",
+    "callable-client",
+    "analytics",
+    "landing",
+    "admin",
+    "deep-linking",
+    "invites",
+    "share",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": [
+    "saas",
+    "workspace",
+    "teams",
+    "members",
+    "invites",
+    "subscription",
+    "billing",
+    "demo-data"
+  ],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "ink"
+  }
+}

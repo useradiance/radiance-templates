@@ -1,0 +1,23 @@
+{
+  "id": "presence",
+  "version": "0.1.0",
+  "title": "Presence",
+  "description": "Online / last-seen heartbeat written to Firestore presence/{uid} while the app is foregrounded.",
+  "side": "app",
+  "capabilities": ["presence", "online-status", "last-seen", "heartbeat", "active-now"],
+  "requires": ["auth", "firestore", "i18n"],
+  "dependencies": {},
+  "wire": {
+    "providers": [
+      {
+        "import": "import { PresenceProvider } from '@/lib/presence-provider';",
+        "component": "PresenceProvider"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    }
+  }
+}

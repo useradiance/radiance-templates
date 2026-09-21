@@ -1,0 +1,20 @@
+// Catalogue is read-only for clients; write it from the console or an admin backend.
+match /products/{productId} {
+  allow read: if true;
+  allow write: if false;
+}
+
+match /discounts/{code} {
+  allow read: if true;
+  allow write: if false;
+}
+
+// Orders belong to the buyer. Status transitions are server-side only, so clients may
+// create a pending order but never change it afterwards.
+match /orders/{orderId} {
+  allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+  allow create: if isSignedIn()
+    && request.resource.data.userId == request.auth.uid
+    && request.resource.data.status == 'pending';
+  allow update, delete: if false;
+}

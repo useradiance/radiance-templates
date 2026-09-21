@@ -1,0 +1,8 @@
+{
+  "moderation": {
+    "report": "Report",
+    "reportTitle": "Report content",
+    "reportHint": "Why are you reporting this?",
+    "thanks": "Thanks — we will review this."
+  }
+}

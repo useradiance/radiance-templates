@@ -1,0 +1,56 @@
+{
+  "id": "hosting",
+  "version": "0.1.0",
+  "title": "Firebase Hosting (web)",
+  "description": "Static web deploys of the Expo web export to Firebase Hosting, with SPA rewrites and asset caching.",
+  "side": "app",
+  "capabilities": ["hosting", "static-hosting", "firebase-hosting", "web-deploy"],
+  "requires": [],
+  "dependencies": {},
+  "scripts": {
+    "build:web": "expo export --platform web",
+    "deploy:web": "expo export --platform web && firebase deploy --only hosting"
+  },
+  "firebase": {
+    "services": ["firebasehosting.googleapis.com"],
+    "emulators": {
+      "hosting": { "port": 5000 }
+    },
+    "config": {
+      "hosting": {
+        "public": "dist",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ],
+        "headers": [
+          {
+            "source": "/_expo/static/**",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "public, max-age=31536000, immutable"
+              }
+            ]
+          },
+          {
+            "source": "/index.html",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "no-cache"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Expo web SPA export (web.output: 'single') writes to dist/, which is what Hosting serves.",
+    "Rewrites send every unknown path to index.html so Expo Router client routes resolve."
+  ]
+}

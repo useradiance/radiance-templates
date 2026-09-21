@@ -1,0 +1,13 @@
+{
+  "onboarding": {
+    "page1Title": "Welcome",
+    "page1Body": "Get started in a few steps.",
+    "page2Title": "Stay in sync",
+    "page2Body": "Your data works offline and syncs when you reconnect.",
+    "page3Title": "You are ready",
+    "page3Body": "Explore the app and make it yours.",
+    "skip": "Skip",
+    "next": "Next",
+    "done": "Get started"
+  }
+}

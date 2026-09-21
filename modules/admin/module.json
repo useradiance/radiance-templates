@@ -1,0 +1,75 @@
+{
+  "id": "admin",
+  "version": "0.1.2",
+  "title": "Admin console",
+  "description": "First-admin bootstrap, user directory, and role management. Pair with roles.",
+  "side": "both",
+  "capabilities": [
+    "admin",
+    "admin-console",
+    "first-admin",
+    "bootstrap-admin",
+    "user-management",
+    "moderation-inbox"
+  ],
+  "requires": [
+    "i18n",
+    "theme",
+    "navigation",
+    "auth",
+    "roles",
+    "firestore",
+    "functions",
+    "callable-client"
+  ],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { bootstrapFirstAdmin } from './callable/bootstrapFirstAdmin';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "bootstrapFirstAdmin: {\n    request: Record<string, never>;\n    response: { ok: true; already: boolean };\n  };"
+      },
+      {
+        "file": "app/(app)/(tabs)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AdminSettingsSection } from '@/components/settings/AdminSettingsSection';"
+        ],
+        "block": "<AdminSettingsSection />"
+      },
+      {
+        "file": "app/(app)/(drawer)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AdminSettingsSection } from '@/components/settings/AdminSettingsSection';"
+        ],
+        "block": "<AdminSettingsSection />"
+      },
+      {
+        "file": "app/(app)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AdminSettingsSection } from '@/components/settings/AdminSettingsSection';"
+        ],
+        "block": "<AdminSettingsSection />"
+      }
+    ]
+  },
+  "firebase": {
+    "functions": ["bootstrapFirstAdmin"]
+  },
+  "notes": [
+    "The first signed-in user to tap Become admin receives role=admin custom claims.",
+    "Later callers are no-ops once _radiance/admin exists.",
+    "setUserClaims (roles module) mirrors role onto users/{uid} for the admin directory.",
+    "`app/(app)/admin/_layout.tsx` sets the stack title from `admin.title` (avoids Expo Router's `admin/index` fallback)."
+  ]
+}

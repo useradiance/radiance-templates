@@ -1,0 +1,20 @@
+{
+  "id": "consent",
+  "version": "0.1.1",
+  "title": "Privacy consent",
+  "description": "Analytics / ATT consent gate with MMKV persistence and a web cookie-style banner component.",
+  "side": "app",
+  "capabilities": ["consent", "privacy", "gdpr", "att", "cookie-banner", "analytics-consent"],
+  "requires": ["analytics", "i18n", "theme"],
+  "dependencies": {
+    "expo-tracking-transparency": "~57.0.1"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { ConsentProvider } from '@/lib/consent-provider';",
+        "component": "ConsentProvider"
+      }
+    ]
+  }
+}

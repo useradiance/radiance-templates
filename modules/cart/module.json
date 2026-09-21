@@ -1,0 +1,17 @@
+{
+  "id": "cart",
+  "version": "0.3.0",
+  "title": "Shopping cart",
+  "description": "MMKV-persisted cart with variant-aware lines, CartLineRow UI, totals, and helpers. Pair with stripe for checkout.",
+  "side": "app",
+  "capabilities": ["cart", "shopping-cart", "basket", "line-items", "mmkv-cart"],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "zustand": "^5.0.3"
+  },
+  "notes": [
+    "Requires theme module for mmkvZustandStorage.",
+    "Cart items are generic — map your product type when calling add().",
+    "CartLineRow is the shared line UI; pair with stripe for checkout."
+  ]
+}

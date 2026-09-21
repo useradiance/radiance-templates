@@ -1,0 +1,4 @@
+match /invites/{code} {
+  allow read: if isSignedIn() && resource.data.createdBy == request.auth.uid;
+  allow write: if false;
+}

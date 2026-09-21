@@ -1,0 +1,32 @@
+{
+  "id": "invites",
+  "version": "0.2.0",
+  "title": "Invites",
+  "description": "Invite codes with create/accept callables for workspaces and projects, plus a deep-link entry route.",
+  "side": "both",
+  "capabilities": ["invites", "invite-codes", "referrals", "join-code", "invitation"],
+  "requires": ["auth", "functions", "deep-linking", "callable-client", "i18n"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { createInvite } from './callable/createInvite';\nexport { acceptInvite } from './callable/acceptInvite';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "createInvite: {\n    request: { targetType?: string; targetId?: string };\n    response: { code: string };\n  };\n  acceptInvite: {\n    request: { code: string };\n    response: { ok: true; targetType?: string; targetId?: string };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "functions": ["createInvite", "acceptInvite"]
+  }
+}

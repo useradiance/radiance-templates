@@ -1,0 +1,170 @@
+{
+  "id": "auth",
+  "version": "0.2.5",
+  "title": "Authentication",
+  "description": "Firebase Authentication with email/Google/Apple/anonymous sign-in, password reset, optional enforced email verification, delete-account callable, and dual idempotent profile bootstrap.",
+  "side": "both",
+  "capabilities": [
+    "auth",
+    "authentication",
+    "login",
+    "signup",
+    "sign-in",
+    "email-password-auth",
+    "google-sign-in",
+    "apple-sign-in",
+    "anonymous-auth",
+    "guest-auth",
+    "password-reset",
+    "email-verification",
+    "delete-account",
+    "user-profile",
+    "session",
+    "sign-out",
+    "phone-auth",
+    "sms-auth"
+  ],
+  "requires": ["i18n", "theme", "navigation", "firestore", "forms", "callable-client"],
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0"
+  },
+  "overrides": ["lib/registry/session.ts", "app/(auth)/sign-in.tsx"],
+  "options": {
+    "providers": {
+      "description": "Sign-in methods to enable.",
+      "type": "multi",
+      "choices": ["email", "google", "apple", "anonymous", "phone"],
+      "default": ["email", "google", "apple"],
+      "min": 1
+    },
+    "enforceEmailVerification": {
+      "description": "When true, sensitive callables and session.isEmailSatisfied require a verified email.",
+      "type": "single",
+      "choices": ["true", "false"],
+      "default": "false"
+    }
+  },
+  "optionBindings": {
+    "providers": {
+      "email": {
+        "firebase": {
+          "authProviders": ["password"]
+        }
+      },
+      "google": {
+        "dependencies": {
+          "expo-auth-session": "~57.0.6",
+          "expo-web-browser": "~57.0.2"
+        },
+        "env": {
+          "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": {
+            "description": "OAuth web client id — written by `radiance setup firebase` from Identity Toolkit (needed for Google sign-in)",
+            "required": true,
+            "prompt": false
+          },
+          "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": {
+            "description": "Optional OAuth iOS client id — Expo AuthSession can use the web client id",
+            "required": false,
+            "prompt": false
+          },
+          "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": {
+            "description": "Optional OAuth Android client id — Expo AuthSession can use the web client id",
+            "required": false,
+            "prompt": false
+          }
+        },
+        "firebase": {
+          "authProviders": ["google.com"]
+        },
+        "files": "variants/google"
+      },
+      "apple": {
+        "dependencies": {
+          "expo-apple-authentication": "~57.0.1",
+          "expo-crypto": "~57.0.1"
+        },
+        "firebase": {
+          "authProviders": ["apple.com"]
+        },
+        "files": "variants/apple"
+      },
+      "anonymous": {
+        "firebase": {
+          "authProviders": ["anonymous"]
+        }
+      },
+      "phone": {
+        "dependencies": {},
+        "firebase": {
+          "authProviders": ["phone"]
+        },
+        "files": "variants/phone"
+      }
+    }
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { AuthProvider } from '@/lib/auth-provider';",
+        "component": "AuthProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "app/(app)/(tabs)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AccountSettingsSection } from '@/components/auth/AccountSettingsSection';"
+        ],
+        "block": "<AccountSettingsSection />"
+      },
+      {
+        "file": "app/(app)/(drawer)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AccountSettingsSection } from '@/components/auth/AccountSettingsSection';"
+        ],
+        "block": "<AccountSettingsSection />"
+      },
+      {
+        "file": "app/(app)/settings.tsx",
+        "marker": "settings",
+        "imports": [
+          "import { AccountSettingsSection } from '@/components/auth/AccountSettingsSection';"
+        ],
+        "block": "<AccountSettingsSection />"
+      },
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { onUserCreated, onUserSignedIn } from './triggers/user';\nexport { deleteAccount } from './callable/deleteAccount';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "deleteAccount: { request: Record<string, never>; response: { ok: true } };"
+      }
+    ]
+  },
+  "firebase": {
+    "services": ["identitytoolkit.googleapis.com", "firestore.googleapis.com"],
+    "emulators": {
+      "auth": {
+        "port": 9099
+      }
+    },
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "functions": ["onUserCreated", "onUserSignedIn", "deleteAccount"]
+  },
+  "notes": [
+    "Pick providers with `radiance add auth --option providers=email,google,anonymous`.",
+    "Enforce verification with `--option enforceEmailVerification=true` (uses requireVerifiedEmail in Functions).",
+    "deleteAccount requires the functions module; settings wires a delete row when callable-client is present.",
+    "Profile bootstrap is dual: client ensureUserProfile + onUserCreated trigger, both idempotent.",
+    "Google: EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID is written to .env by `radiance setup firebase`."
+  ]
+}

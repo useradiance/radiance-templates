@@ -1,0 +1,11 @@
+{
+  "iap": {
+    "title": "Go Pro",
+    "body": "Unlock the full product with a one-time or subscription purchase.",
+    "webHint": "In-app purchases run on iOS and Android. Use the web billing page on this device.",
+    "buy": "Continue",
+    "thanks": "Purchase complete.",
+    "unavailable": "No offering is configured yet.",
+    "error": "Purchase failed."
+  }
+}

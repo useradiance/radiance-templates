@@ -1,0 +1,32 @@
+{
+  "id": "moderation",
+  "version": "0.1.0",
+  "title": "Moderation",
+  "description": "User report flow and admin review queue protected by roles claims.",
+  "side": "both",
+  "capabilities": ["moderation", "report-content", "abuse-report", "review-queue", "trust-safety"],
+  "requires": ["roles", "firestore", "functions", "auth", "i18n", "theme"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { resolveReport } from './callable/resolveReport';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "resolveReport: {\n    request: { reportId: string; resolution: \"dismissed\" | \"actioned\" };\n    response: { ok: true };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "functions": ["resolveReport"]
+  }
+}

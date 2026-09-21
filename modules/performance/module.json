@@ -1,0 +1,26 @@
+{
+  "id": "performance",
+  "version": "0.1.3",
+  "title": "Performance Monitoring",
+  "description": "Firebase Performance Monitoring helpers for web and @react-native-firebase/perf on native.",
+  "side": "app",
+  "capabilities": ["performance", "perf-monitoring", "traces", "network-monitoring"],
+  "requires": [],
+  "dependencies": {
+    "@react-native-firebase/app": "^26.1.0",
+    "@react-native-firebase/perf": "^26.1.0",
+    "expo-build-properties": "~57.0.9"
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "['@react-native-firebase/app', { ios: { disableSPM: true } }],\n    ['expo-build-properties', { ios: { useFrameworks: 'static', forceStaticLinking: ['RNFBApp', 'RNFBAnalytics', 'RNFBRemoteConfig', 'RNFBCrashlytics', 'RNFBPerf', 'RNFBAppCheck', 'RNFBFirestore', 'RNFBAuth', 'RNFBMessaging'] } }],"
+      }
+    ]
+  },
+  "notes": [
+    "iOS uses CocoaPods Firebase (disableSPM) with static frameworks \u2014 required on Xcode 26+; SPM + dynamic hits SwiftUICore linker errors."
+  ]
+}

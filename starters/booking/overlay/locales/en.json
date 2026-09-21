@@ -1,0 +1,16 @@
+{
+  "booking": {
+    "services": "Services",
+    "servicesSubtitle": "Pick a treatment, then a time",
+    "empty": "No services yet",
+    "appointments": "Appointments",
+    "appointmentsSubtitle": "Upcoming and past visits",
+    "noAppointments": "No appointments yet",
+    "pickDay": "Pick a day",
+    "pickDaySubtitle": "Choose a day, then a time",
+    "pickTime": "Time",
+    "confirm": "Book with deposit",
+    "confirmed": "Appointment booked",
+    "noSlots": "No open times this day — try another."
+  }
+}

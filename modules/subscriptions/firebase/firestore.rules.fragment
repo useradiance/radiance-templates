@@ -1,0 +1,4 @@
+match /entitlements/{userId} {
+  allow read: if isSignedIn() && request.auth.uid == userId;
+  allow write: if false; // Cloud Functions / Admin only
+}

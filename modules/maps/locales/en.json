@@ -1,0 +1,9 @@
+{
+  "maps": {
+    "permissionDenied": "Location permission is required to show your position on the map.",
+    "locationError": "Could not determine your current location.",
+    "loading": "Loading map…",
+    "missingApiKeyTitle": "Map unavailable",
+    "missingApiKeyDescription": "Set EXPO_PUBLIC_GOOGLE_MAPS_API_KEY in .env and restart the dev server."
+  }
+}

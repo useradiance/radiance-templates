@@ -1,0 +1,7 @@
+{
+  "biometrics": {
+    "prompt": "Unlock the app",
+    "locked": "App locked",
+    "unlock": "Unlock"
+  }
+}

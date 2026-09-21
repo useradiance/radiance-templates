@@ -1,0 +1,7 @@
+{
+  "locale": {
+    "title": "Language",
+    "system": "Match device",
+    "hint": "Changing language updates the UI immediately."
+  }
+}

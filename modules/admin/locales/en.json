@@ -1,0 +1,26 @@
+{
+  "admin": {
+    "title": "Admin",
+    "bootstrapHint": "If this project has no admin yet, you can claim it.",
+    "claimTitle": "First admin",
+    "claimHint": "The first person to claim admin gets full access to manage roles.",
+    "becomeAdmin": "Become the first admin",
+    "youAreAdmin": "You are the admin. Sign out and back in if the console still looks locked.",
+    "alreadyTaken": "An admin already exists.",
+    "bootstrapError": "Could not bootstrap admin.",
+    "ready": "Manage app-wide roles for everyone in this project.",
+    "manageHint": "Role changes update Auth custom claims and the user profile document.",
+    "usersTitle": "Users",
+    "usersSubtitle": "Everyone with a profile in this project",
+    "usersEmpty": "No users yet",
+    "usersEmptyHint": "Sign-ups and demo seed create profile documents here.",
+    "roleAdmin": "Admin",
+    "roleMember": "Member",
+    "roleNone": "No role",
+    "roleUpdated": "Role updated",
+    "roleUpdateFailed": "Could not update role",
+    "you": "You",
+    "openConsole": "Open admin console",
+    "openConsoleHint": "Bootstrap admin access and manage user roles"
+  }
+}

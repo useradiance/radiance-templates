@@ -1,0 +1,37 @@
+{
+  "id": "calendar",
+  "version": "0.3.1",
+  "title": "Calendar",
+  "description": "Month grid, RRULE availability slots, and scheduled event reminder pushes.",
+  "side": "both",
+  "capabilities": [
+    "calendar",
+    "events",
+    "scheduling",
+    "month-view",
+    "appointments",
+    "availability",
+    "rrule"
+  ],
+  "requires": ["i18n", "theme", "firestore"],
+  "dependencies": {
+    "rrule": "^2.8.1"
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { upcomingEventReminders } from './scheduled/upcomingEventReminders';"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json",
+    "functions": ["upcomingEventReminders"]
+  }
+}

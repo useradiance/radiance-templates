@@ -1,0 +1,7 @@
+{
+  "roles": {
+    "checking": "Checking permissions…",
+    "denied": "Access denied",
+    "deniedHint": "You do not have permission to view this screen."
+  }
+}

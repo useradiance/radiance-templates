@@ -1,0 +1,21 @@
+{
+  "states": {
+    "emptyTitle": "Nothing here yet",
+    "emptyDescription": "When there is something to show, it will appear here."
+  },
+  "appearance": {
+    "title": "Appearance",
+    "system": "Match system",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "table": {
+    "search": "Search",
+    "addFilter": "Add filter",
+    "removeFilter": "Remove filter",
+    "resizeColumn": "Resize column",
+    "resizeRow": "Resize row height",
+    "collapseDetail": "Hide details",
+    "expandDetail": "Show details"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "comments",
+  "version": "0.2.1",
+  "title": "Comments",
+  "description": "Polymorphic comments on any parent path with list UI, owner cascade delete, and push to the parent author.",
+  "side": "both",
+  "capabilities": ["comments", "discussion", "replies", "threaded-comments", "feedback"],
+  "requires": ["auth", "firestore", "forms", "i18n", "theme"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { onCommentCreated } from './triggers/onCommentCreated';"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json",
+    "functions": ["onCommentCreated"]
+  }
+}

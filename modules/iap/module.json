@@ -1,0 +1,22 @@
+{
+  "id": "iap",
+  "version": "0.1.1",
+  "title": "In-app purchases",
+  "description": "RevenueCat IAP helpers and a paywall screen. Native only — web shows a fallback.",
+  "side": "app",
+  "capabilities": ["iap", "in-app-purchase", "revenuecat", "paywall", "app-store", "play-billing"],
+  "requires": ["i18n", "theme", "auth"],
+  "dependencies": {
+    "react-native-purchases": "^8.11.0"
+  },
+  "env": {
+    "EXPO_PUBLIC_REVENUECAT_API_KEY": {
+      "description": "RevenueCat public SDK key",
+      "required": true
+    }
+  },
+  "notes": [
+    "Configure offerings in the RevenueCat dashboard.",
+    "Web is a no-op; use stripe/subscriptions for browser billing."
+  ]
+}

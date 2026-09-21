@@ -1,0 +1,31 @@
+{
+  "id": "local-business",
+  "version": "0.1.3",
+  "extends": "expo-app",
+  "title": "Local business",
+  "description": "Store locator with maps, places search, hours, and contact form.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "maps",
+    "places",
+    "hosting",
+    "seo",
+    "analytics",
+    "landing"
+  ],
+  "overlay": "overlay",
+  "capabilities": ["local-business", "store-locator", "contact", "hours", "directory"],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "grove"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "media-picker",
+  "version": "0.1.1",
+  "title": "Media picker",
+  "description": "Image, document, and camera capture helpers that hand local URIs to the storage upload pipeline.",
+  "side": "app",
+  "capabilities": ["media-picker", "image-picker", "camera", "document-picker", "file-picker"],
+  "requires": ["storage", "theme", "i18n"],
+  "dependencies": {
+    "expo-image-picker": "~57.0.15",
+    "expo-document-picker": "~57.0.1"
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "[\n  'expo-image-picker',\n  {\n    photosPermission: 'Allow $(PRODUCT_NAME) to access your photos.',\n    cameraPermission: 'Allow $(PRODUCT_NAME) to use the camera.',\n  },\n],"
+      }
+    ]
+  }
+}

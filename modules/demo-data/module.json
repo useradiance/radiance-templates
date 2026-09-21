@@ -1,0 +1,46 @@
+{
+  "id": "demo-data",
+  "version": "0.1.3",
+  "title": "Demo data",
+  "description": "Optional first-run seed so starters look alive. Gated by EXPO_PUBLIC_SEED_DEMO; not for production catalogues.",
+  "side": "both",
+  "capabilities": ["demo-data", "seed", "sample-data", "fixture-data", "demo-content"],
+  "requires": ["i18n", "theme", "auth", "firestore", "callable-client", "functions"],
+  "dependencies": {},
+  "env": {
+    "EXPO_PUBLIC_SEED_DEMO": {
+      "description": "Set to true to seed sample documents on first signed-in launch",
+      "required": false
+    }
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { DemoSeedProvider } from '@/lib/demo-provider';",
+        "component": "DemoSeedProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { seedDemo } from './callable/seedDemo';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "seedDemo: {\n    request: {\n    collections: Record<string, Record<string, unknown>[]>;\n    nested?: Record<string, unknown>[];\n  };\n    response: { ok: true; already: boolean };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "functions": ["seedDemo"]
+  },
+  "notes": [
+    "Enable with `radiance init --demo`, `radiance add demo-data`, or EXPO_PUBLIC_SEED_DEMO=true.",
+    "Starters overlay lib/demo-content.ts with domain documents.",
+    "The callable writes once per seed version (meta at _radiance/demo). Nested likes live under posts/{id}/likes."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "radiance-staging-placeholder",
+    "staging": "radiance-staging-placeholder",
+    "prod": "radiance-prod-placeholder"
+  }
+}

@@ -1,0 +1,9 @@
+// Role helpers — modules splice this near other auth helpers.
+function isAdmin() {
+  return isSignedIn()
+    && (request.auth.token.admin == true || request.auth.token.role == 'admin');
+}
+
+function hasRole(role) {
+  return isSignedIn() && (isAdmin() || request.auth.token.role == role);
+}

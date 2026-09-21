@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "home": "Home",
+    "settings": "Settings",
+    "homeIntro": "This is your app shell. Add features with `radiance add` or describe them with `radiance prompt`.",
+    "signInPlaceholderTitle": "Sign-in goes here",
+    "signInPlaceholderBody": "Run `radiance add auth` to replace this screen with email, Google and Apple sign-in."
+  }
+}

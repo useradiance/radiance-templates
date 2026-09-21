@@ -1,0 +1,55 @@
+{
+  "id": "app-check",
+  "version": "0.2.2",
+  "title": "App Check",
+  "description": "Firebase App Check: reCAPTCHA on web, App Attest / Play Integrity via RNFirebase on native.",
+  "side": "app",
+  "capabilities": [
+    "app-check",
+    "abuse-protection",
+    "attestation",
+    "bot-protection",
+    "rnfirebase-app-check"
+  ],
+  "requires": [],
+  "dependencies": {
+    "@react-native-firebase/app": "^26.1.0",
+    "@react-native-firebase/app-check": "^26.1.0",
+    "expo-build-properties": "~57.0.9"
+  },
+  "env": {
+    "EXPO_PUBLIC_RECAPTCHA_SITE_KEY": {
+      "description": "reCAPTCHA v3 site key from Firebase console \u2192 App Check (web)",
+      "required": true
+    },
+    "EXPO_PUBLIC_APP_CHECK_DEBUG_TOKEN": {
+      "description": "Optional debug token for local web development",
+      "required": false,
+      "prompt": false
+    }
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { AppCheckProvider } from '@/lib/app-check';",
+        "component": "AppCheckProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "['@react-native-firebase/app', { ios: { disableSPM: true } }],\n    ['expo-build-properties', { ios: { useFrameworks: 'static', forceStaticLinking: ['RNFBApp', 'RNFBAnalytics', 'RNFBRemoteConfig', 'RNFBCrashlytics', 'RNFBPerf', 'RNFBAppCheck', 'RNFBFirestore', 'RNFBAuth', 'RNFBMessaging'] } }],"
+      }
+    ]
+  },
+  "firebase": {
+    "services": ["firebaseappcheck.googleapis.com"]
+  },
+  "notes": [
+    "Web uses reCAPTCHA (app-check.tsx); native uses app-check.native.tsx.",
+    "Enable enforcement per service in the Firebase console only after real traffic shows valid tokens.",
+    "Requires a development build and google-services files on native.",
+    "iOS uses CocoaPods Firebase (disableSPM) with static frameworks \u2014 required on Xcode 26+; SPM + dynamic hits SwiftUICore linker errors."
+  ]
+}

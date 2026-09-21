@@ -1,0 +1,40 @@
+{
+  "id": "remote-config",
+  "version": "0.1.2",
+  "title": "Remote Config",
+  "description": "Firebase Remote Config with typed defaults, fetch-and-activate on launch, and a React provider for feature flags and kill switches.",
+  "side": "app",
+  "capabilities": [
+    "remote-config",
+    "feature-flags",
+    "kill-switch",
+    "experiments",
+    "dynamic-config"
+  ],
+  "requires": [],
+  "dependencies": {
+    "@react-native-firebase/app": "^26.1.0",
+    "@react-native-firebase/remote-config": "^26.1.0",
+    "expo-build-properties": "~57.0.9"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { RemoteConfigProvider } from '@/lib/remote-config-provider';",
+        "component": "RemoteConfigProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "['@react-native-firebase/app', { ios: { disableSPM: true } }],\n    ['expo-build-properties', { ios: { useFrameworks: 'static', forceStaticLinking: ['RNFBApp', 'RNFBAnalytics', 'RNFBRemoteConfig', 'RNFBCrashlytics', 'RNFBPerf', 'RNFBAppCheck', 'RNFBFirestore', 'RNFBAuth', 'RNFBMessaging'] } }],"
+      }
+    ]
+  },
+  "notes": [
+    "Web uses the Firebase JS remoteConfig SDK; native uses @react-native-firebase/remote-config (development build).",
+    "Edit DEFAULTS in lib/remote-config.ts to match your Remote Config console keys.",
+    "iOS uses CocoaPods Firebase (disableSPM) with static frameworks \u2014 required on Xcode 26+; SPM + dynamic hits SwiftUICore linker errors."
+  ]
+}

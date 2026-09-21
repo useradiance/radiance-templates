@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radiance starter first paint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    h1, h2, h3, .brand { font-family: "Fraunces", serif; font-weight: 700; letter-spacing: -0.03em; }
+    img { display: block; width: 100%; max-width: 100%; height: auto; object-fit: cover; }
+    button { font-family: inherit; }
+
+    .app { display: flex; height: 100%; background: var(--bg); align-items: stretch; }
+    .sidebar {
+      width: 220px;
+      flex: none;
+      padding: 28px 18px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 100%;
+    }
+    .brand { font-size: 22px; padding: 4px 10px 22px; }
+    .nav-item {
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .nav-item.on { background: var(--secondary); color: var(--text); font-weight: 600; }
+    .topbar {
+      min-height: 64px;
+      height: 64px;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .topbar .brand { padding: 0; font-size: 20px; }
+    .topbar .links { display: flex; gap: 22px; color: var(--muted); font-weight: 500; font-size: 14px; }
+    .topbar .links b { color: var(--text); }
+    .pane { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+    .main {
+      flex: 1;
+      min-width: 0;
+      min-height: 0;
+      overflow: auto;
+    }
+
+    .page {
+      padding: 32px 40px 48px;
+      min-width: 0;
+    }
+    .page-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .title { font-size: 28px; line-height: 1.15; margin: 0 0 6px; }
+    .sub { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.4; }
+
+    .feed-layout {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 32px;
+      width: 100%;
+    }
+    .feed-col { width: 100%; max-width: 540px; min-width: 0; }
+    .rail { width: 280px; flex: none; padding-top: 0; }
+
+    .split {
+      display: flex;
+      height: 100%;
+      min-height: 0;
+    }
+    .master {
+      width: 360px;
+      flex: none;
+      min-width: 0;
+      overflow: auto;
+      padding: 28px 24px 32px;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .detail {
+      flex: 1;
+      min-width: 0;
+      overflow: auto;
+      padding: 32px 36px 48px;
+    }
+
+    .map-split { display: flex; height: 100%; min-height: 0; }
+    .map-split .master { width: 380px; }
+    .map {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--primary) 16%, #dce8dc), #c5d5c8),
+        repeating-linear-gradient(90deg, transparent 0 48px, rgba(255,255,255,.14) 48px 49px);
+    }
+    .pin {
+      position: absolute; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--primary); border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      min-width: 0;
+    }
+    .pad { padding: 16px 18px; }
+    .muted { color: var(--muted); }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .chip.on { background: var(--primary); color: var(--primaryText); border-color: var(--primary); }
+    .btn {
+      background: var(--primary);
+      color: var(--primaryText);
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .btn.sm { padding: 8px 12px; font-size: 13px; }
+    .btn.block { width: 100%; }
+    .field {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .hero { aspect-ratio: 21 / 9; }
+    .wide { aspect-ratio: 16 / 9; }
+    .sq { aspect-ratio: 1; }
+    .avatar {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--secondary);
+      display: grid; place-items: center; font-weight: 700; font-size: 13px; flex: none;
+    }
+    .bubble { max-width: 72%; padding: 10px 14px; border-radius: 16px; font-size: 14px; }
+    .bubble.mine { margin-left: auto; background: var(--primary); color: var(--primaryText); }
+    .bubble.theirs { background: var(--surfaceMuted); }
+    .progress { height: 8px; background: var(--surfaceMuted); border-radius: 99px; overflow: hidden; margin-top: 10px; }
+    .progress > i { display: block; height: 100%; width: 12%; background: var(--primary); }
+    .row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .grow { flex: 1; min-width: 0; }
+    .stack { display: flex; flex-direction: column; gap: 10px; }
+    .tabbar { display: none; }
+
+    html.phone, body.phone { width: 390px; height: 844px; overflow: hidden; }
+    body.phone .app,
+    body.phone .pane,
+    body.phone .main {
+      width: 390px;
+      max-width: 390px;
+      overflow-x: hidden;
+    }
+    body.phone .app { flex-direction: column; height: 844px; }
+    body.phone .sidebar { display: none; }
+    body.phone .topbar {
+      padding: 0 20px !important;
+      height: 60px;
+      min-height: 60px;
+    }
+    body.phone .topbar .links { display: none; }
+    body.phone .page { padding: 20px !important; }
+    body.phone .feed-layout { display: block; max-width: none; }
+    body.phone .feed-col { max-width: none; }
+    body.phone .rail, body.phone .desktop-only { display: none !important; }
+    body.phone .split, body.phone .map-split { flex-direction: column; height: auto; width: 390px; max-width: 390px; overflow-x: hidden; }
+    body.phone .map-split .map { order: -1; }
+    body.phone .master,
+    body.phone .split .master,
+    body.phone .map-split .master {
+      width: 390px !important;
+      max-width: 390px;
+      border-right: 0;
+      padding: 20px !important;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+    body.phone .detail { display: none; }
+    body.phone .map { height: 168px; flex: none; width: 100%; }
+    body.phone .grid, body.phone .grid-2 { grid-template-columns: minmax(0, 1fr); }
+    body.phone .grid.shop { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    body.phone .title { font-size: 24px; }
+    body.phone .tabbar {
+      display: flex;
+      flex: none;
+      border-top: 1px solid var(--border);
+      padding: 10px 8px 18px;
+      background: var(--surface);
+      justify-content: space-around;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    body.phone .tabbar .on { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const PACKS = {
+      branded: { bg:'#f7f5f6', surface:'#ffffff', surfaceMuted:'#efe9eb', border:'#e0d5d8', text:'#1a1216', muted:'#6d5962', primary:'#e11d48', primaryText:'#ffffff', secondary:'#f3e8eb' },
+      contrast: { bg:'#ffffff', surface:'#ffffff', surfaceMuted:'#f2f2f2', border:'#6b6b6b', text:'#000000', muted:'#2e2e2e', primary:'#c47a00', primaryText:'#000000', secondary:'#ededed' },
+      hearth: { bg:'#f7f1ea', surface:'#fffdf9', surfaceMuted:'#efe4d6', border:'#e2d0bc', text:'#2a1810', muted:'#7a5a46', primary:'#c45c26', primaryText:'#ffffff', secondary:'#f3e6d8' },
+      bloom: { bg:'#f8f3f6', surface:'#ffffff', surfaceMuted:'#efe4eb', border:'#e0cdd8', text:'#2a1520', muted:'#6e4d5c', primary:'#9d4e6c', primaryText:'#ffffff', secondary:'#f3e4ec' },
+      flare: { bg:'#fff7f0', surface:'#ffffff', surfaceMuted:'#ffe8d6', border:'#f5d0b0', text:'#1c1008', muted:'#7a4a28', primary:'#ea580c', primaryText:'#ffffff', secondary:'#ffedd5' },
+      paper: { bg:'#f6f3ea', surface:'#fffcf5', surfaceMuted:'#ece6d6', border:'#ddd4be', text:'#1c1914', muted:'#5c5648', primary:'#4d5c32', primaryText:'#ffffff', secondary:'#e8ead8' },
+      grove: { bg:'#f3f6f2', surface:'#ffffff', surfaceMuted:'#e4ece2', border:'#c8d6c4', text:'#142016', muted:'#4a6050', primary:'#2f6b3a', primaryText:'#ffffff', secondary:'#dcead8' },
+      ocean: { bg:'#f0f9fa', surface:'#ffffff', surfaceMuted:'#e0f2f4', border:'#b8dce2', text:'#0a2a32', muted:'#4a6f78', primary:'#0d9488', primaryText:'#ffffff', secondary:'#ccfbf1' },
+      violet: { bg:'#f5f3f8', surface:'#ffffff', surfaceMuted:'#ece6f4', border:'#d8cce8', text:'#1a1028', muted:'#5c4a78', primary:'#6d28d9', primaryText:'#ffffff', secondary:'#ede9fe' },
+      neutral: { bg:'#f4f5f7', surface:'#ffffff', surfaceMuted:'#ebeef2', border:'#d5dae2', text:'#0f1419', muted:'#5a6575', primary:'#2563eb', primaryText:'#ffffff', secondary:'#e8ecf2' },
+      ink: { bg:'#fafafa', surface:'#ffffff', surfaceMuted:'#f0f0f2', border:'#e2e2e6', text:'#0a0a0c', muted:'#5c5c68', primary:'#4f46e5', primaryText:'#ffffff', secondary:'#eef0ff' },
+      citrus: { bg:'#fbf8ee', surface:'#fffdf6', surfaceMuted:'#f3ebd0', border:'#e6d8a8', text:'#1c1608', muted:'#6e5c28', primary:'#ca8a04', primaryText:'#1c1608', secondary:'#fef3c7' },
+    };
+
+    const pic = (seed, w, h) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
+
+    const STARTERS = [
+      { id:'social-app', title:'Social', pack:'branded', chrome:'sidebar', nav:['Home','People','New','You'], tabs:['Home','People','You'] },
+      { id:'e-commerce', title:'Storefront', pack:'contrast', chrome:'topbar', nav:['Shop','Cart','Orders'], tabs:['Shop','Cart','Orders'] },
+      { id:'marketplace', title:'Marketplace', pack:'hearth', chrome:'topbar', nav:['Stay','Experiences','Sell'], tabs:['Browse','Sell'] },
+      { id:'booking', title:'Booking', pack:'bloom', chrome:'topbar', nav:['Services','Appointments'], tabs:['Book','Appointments'] },
+      { id:'events', title:'Events', pack:'flare', chrome:'topbar', nav:['Discover','My events'], tabs:['Discover','Mine'] },
+      { id:'content', title:'Stories', pack:'paper', chrome:'topbar', nav:['Stories','Bookmarks'], tabs:['Stories','Saved'] },
+      { id:'local-business', title:'Stores', pack:'grove', chrome:'topbar', nav:['Stores','Contact'], tabs:['Stores','Contact'] },
+      { id:'messaging-app', title:'Messages', pack:'ocean', chrome:'sidebar', nav:['Messages','People'], tabs:['Chats','People'] },
+      { id:'community', title:'Community', pack:'violet', chrome:'sidebar', nav:['Channels','You'], tabs:['Channels','You'] },
+      { id:'productivity', title:'Projects', pack:'neutral', chrome:'sidebar', nav:['Projects','Inbox'], tabs:['Projects','Inbox'] },
+      { id:'saas', title:'Workspaces', pack:'ink', chrome:'sidebar', nav:['Workspaces','People','Billing'], tabs:['Home','People','Billing'] },
+      { id:'habits', title:'Habits', pack:'citrus', chrome:'sidebar', nav:['Today','History'], tabs:['Today','History'] },
+    ];
+
+    function applyPack(pack) {
+      const p = PACKS[pack];
+      const r = document.documentElement.style;
+      for (const [k, v] of Object.entries({
+        '--bg': p.bg, '--surface': p.surface, '--surfaceMuted': p.surfaceMuted,
+        '--border': p.border, '--text': p.text, '--muted': p.muted,
+        '--primary': p.primary, '--primaryText': p.primaryText, '--secondary': p.secondary,
+      })) r.setProperty(k, v);
+    }
+
+    function chrome(s, inner) {
+      const phone = document.documentElement.classList.contains('phone');
+      const tabs = `<nav class="tabbar">${s.tabs.map((t,i)=>`<span class="${i===0?'on':''}">${t}</span>`).join('')}</nav>`;
+      if (phone) {
+        return `<div class="app"><header class="topbar"><div class="brand">${s.title}</div></header><div class="pane"><div class="main">${inner}</div>${tabs}</div></div>`;
+      }
+      if (s.chrome === 'sidebar') {
+        return `<div class="app"><aside class="sidebar"><div class="brand">${s.title}</div>${s.nav.map((n,i)=>`<div class="nav-item ${i===0?'on':''}">${n}</div>`).join('')}</aside><div class="pane"><div class="main">${inner}</div></div></div>`;
+      }
+      return `<div class="app" style="flex-direction:column"><header class="topbar"><div class="brand">${s.title}</div><div class="links">${s.nav.map((n,i)=> i===0?`<b>${n}</b>`:`<span>${n}</span>`).join('')}</div></header><div class="pane"><div class="main">${inner}</div></div></div>`;
+    }
+
+    const head = (title, sub, extra='') =>
+      `<div class="page-head"><div><h1 class="title">${title}</h1><p class="sub">${sub}</p></div>${extra}</div>`;
+
+    const screens = {
+      'social-app': () => `<div class="page"><div class="feed-layout"><div class="feed-col stack">
+        ${[['Maya Chen','First light over the river. Worth the early alarm.','radiance-maya-dawn',1200,800],['Jordan Hale','The new place on Oak does a quieter pour-over.','radiance-jordan-pour',1200,800]].map(([n,t,img,w,h])=>`<div class="card"><div class="pad row"><div class="avatar">${n[0]}</div><b>${n}</b></div><img class="wide" src="${pic(img,w,h)}" alt=""/><div class="pad muted">${t}</div></div>`).join('')}
+      </div><aside class="rail desktop-only"><div class="card pad"><b>People to follow</b><p class="muted" style="margin:8px 0 0">Maya Chen<br>Jordan Hale<br>Priya Nair</p></div></aside></div></div>`,
+
+      'e-commerce': () => `<div class="page">${head('Shop','Curated picks, ready to ship')}
+        <div class="card" style="margin-bottom:18px"><img class="hero" src="${pic('radiance-demo-runner',1600,700)}" alt=""/><div class="pad"><span class="muted">Featured</span><h2 class="title" style="font-size:22px;margin-top:4px">Aero runner</h2></div></div>
+        <div class="chips">${['All','Shoes','Apparel','Outerwear'].map((c,i)=>`<span class="chip ${i===0?'on':''}">${c}</span>`).join('')}</div>
+        <div class="grid shop">${[['Aero runner','$128','runner'],['Trail shell','$164','jacket'],['Studio tote','$48','tote'],['Field cap','$32','cap'],['Quiet hoodie','$89','hoodie'],['Desk lamp','$72','lamp']].map(([n,p,id])=>`<div class="card"><img class="sq" src="${pic('radiance-demo-'+id,700,700)}" alt=""/><div class="pad"><b>${n}</b><div class="muted">${p}</div></div></div>`).join('')}</div></div>`,
+
+      'marketplace': () => `<div class="map-split"><div class="master">${head('Homes','Places you would actually stay')}
+        <div class="chips">${['Homes','Cabins','Studios'].map((c,i)=>`<span class="chip ${i===0?'on':''}">${c}</span>`).join('')}
+        ${[['Sun loft in Mission','$189 / night','radiance-demo-loft'],['Garden cabin','$142 / night','radiance-demo-cabin'],['Canal studio','$128 / night','radiance-demo-studio']].map(([n,p,img])=>`<div class="card" style="margin-bottom:12px"><img class="wide" src="${pic(img,800,500)}" alt=""/><div class="pad"><b>${n}</b><div class="muted">${p}</div></div></div>`).join('')}
+      </div><div class="map"><i class="pin" style="top:40%;left:48%"></i><i class="pin" style="top:55%;left:38%"></i><i class="pin" style="top:32%;left:62%"></i></div></div>`,
+
+      'booking': () => `<div class="page">${head('Book','A table, a chair, and someone who is good with scissors')}
+        <div class="grid shop">${[['Signature cut','45 min · $65','radiance-cut'],['Colour & gloss','90 min · $145','radiance-color'],['Blowout','30 min · $45','radiance-blow'],['Gel manicure','50 min · $55','radiance-nails'],['Deep massage','60 min · $90','radiance-massage'],['Skin reset','40 min · $70','radiance-skin']].map(([n,m,img])=>`<div class="card"><img class="wide" src="${pic(img,800,560)}" alt=""/><div class="pad"><b>${n}</b><div class="muted">${m}</div></div></div>`).join('')}</div></div>`,
+
+      'events': () => `<div class="page">${head('Discover','Nights worth leaving the house for')}
+        <div class="chips">${['All','Tonight','This week','Free'].map((c,i)=>`<span class="chip ${i===0?'on':''}">${c}</span>`).join('')}</div>
+        <div class="grid-2">${[['Launch night','Main hall · San Francisco','radiance-launch'],['Late jazz in the courtyard','Oak courtyard · Oakland','radiance-jazz'],['Sunrise ridge run','Twin Peaks trailhead','radiance-run'],['Reading in the stacks','City library','radiance-read']].map(([n,m,img])=>`<div class="card"><img class="wide" src="${pic(img,1200,700)}" alt=""/><div class="pad"><b>${n}</b><div class="muted">${m}</div></div></div>`).join('')}</div></div>`,
+
+      'content': () => `<div class="page" style="max-width:960px;margin:0 auto">${head('Stories','Long reads for a slow afternoon')}
+        <div class="chips">${['Essays','Culture','Food','Cities'].map((c,i)=>`<span class="chip ${i===0?'on':''}">${c}</span>`).join('')}</div>
+        <div class="card" style="margin-bottom:18px"><img class="hero" src="${pic('radiance-desk',1600,800)}" alt=""/><div class="pad"><h2 class="title" style="font-size:22px">How to keep a desk that still feels like a room</h2><p class="muted" style="margin:6px 0 0">Alex Rivera · 6 min read</p></div></div>
+        <div class="grid">${[['A walk that is not exercise','radiance-walk'],['Why serifs still belong on screens','radiance-type'],['Tuesday soup','radiance-soup']].map(([n,img])=>`<div class="card"><img class="wide" src="${pic(img,900,560)}" alt=""/><div class="pad"><b>${n}</b></div></div>`).join('')}</div></div>`,
+
+      'local-business': () => `<div class="map-split"><div class="master">${head('Stores','Find a shop nearby')}
+        ${[['Market Street','Embarcadero · Open · closes 8pm','radiance-market'],['Oak & Fillmore','Pacific Heights · Open · closes 7pm','radiance-oak'],['Valencia','Mission · Open · closes 9pm','radiance-valencia']].map(([n,m,img])=>`<div class="card" style="margin-bottom:12px"><img class="wide" src="${pic(img,800,480)}" alt=""/><div class="pad"><b>${n}</b><div class="muted">${m}</div></div></div>`).join('')}
+      </div><div class="map"><i class="pin" style="top:42%;left:52%"></i><i class="pin" style="top:58%;left:36%"></i></div></div>`,
+
+      'messaging-app': () => `<div class="split"><div class="master">${head('Messages','Your conversations')}
+        ${[['Maya Chen','See you at 7 — I will grab a table.'],['Jordan Hale','The oak place is quieter after 4.'],['Priya Nair','Ridge loop tomorrow if the fog lifts.'],['Alex Rivera','Sending the type samples in a minute.']].map(([n,m],i)=>`<div class="card pad" style="margin-bottom:10px;${i===0?'outline:2px solid var(--primary)':''}"><b>${n}</b><div class="muted">${m}</div></div>`).join('')}
+      </div><div class="detail desktop-only stack"><h2 class="title" style="font-size:22px">Maya Chen</h2>
+        <div class="bubble theirs">Are we still on for dinner?</div>
+        <div class="bubble mine">Yes — 7 works.</div>
+        <div class="bubble theirs">See you at 7 — I will grab a table.</div>
+      </div></div>`,
+
+      'community': () => `<div class="split"><div class="master">${head('Channels','Rooms you can finish a thought in')}
+        ${['general','design','shipping','lounge','help','events'].map((n,i)=>`<div class="nav-item ${i===0?'on':''}"># ${n}</div>`).join('')}
+      </div><div class="detail desktop-only"><h2 class="title" style="font-size:24px">#general</h2><p class="sub">Housekeeping and hellos</p>
+        <div class="card pad" style="margin-top:16px"><b>Welcome — start here</b></div>
+        <div class="card pad" style="margin-top:10px"><b>Introductions</b></div>
+      </div></div>`,
+
+      'productivity': () => `<div class="split"><div class="master">${head('Projects','Capture work, then knock out the tasks')}
+        ${[['Launch week','4 open'],['Marketing site','3 open'],['Mobile polish','5 open'],['Ops backlog','2 open']].map(([n,m],i)=>`<div class="card pad row" style="margin-bottom:10px;justify-content:space-between;${i===0?'outline:2px solid var(--primary)':''}"><b>${n}</b><span class="chip">${m}</span></div>`).join('')}
+      </div><div class="detail desktop-only"><h2 class="title" style="font-size:24px">Launch week</h2>
+        ${[['Cut the release notes',true],['Record the walkthrough',false],['Ping the mailing list',false],['Ship the status page copy',false]].map(([t,d])=>`<div class="card pad" style="margin-top:10px;${d?'text-decoration:line-through;color:var(--muted)':''}">${d?'☑':'☐'} ${t}</div>`).join('')}
+      </div></div>`,
+
+      'saas': () => `<div class="split"><div class="master">${head('Workspaces','Teams you own or belong to')}
+        <div class="card pad" style="margin-bottom:16px"><div class="field">Workspace name</div><div class="btn block">Create</div></div>
+        <div class="card pad" style="margin-bottom:10px"><b>Acme Ops</b><div class="muted">4 members</div></div>
+        <div class="card pad"><b>Northwind Shared</b><div class="muted">3 members</div></div>
+      </div><div class="detail desktop-only"><h2 class="title" style="font-size:24px">Acme Ops</h2><p class="sub">You own this workspace</p>
+        <div class="card pad" style="margin-top:16px"><b>Maya Chen</b><div class="muted">Product · Admin</div></div>
+        <div class="card pad" style="margin-top:10px"><b>Jordan Hale</b><div class="muted">Engineering · Member</div></div>
+      </div></div>`,
+
+      'habits': () => `<div class="page"><div class="feed-layout"><div class="feed-col">
+        ${head('Today','Tap a habit to check in','<button class="btn sm">Add</button>')}
+        <div class="stack">${[['Drink water','12-day streak'],['Walk 20 minutes','8-day streak'],['Read 10 pages','21-day streak'],['Morning stretch','5-day streak'],['Journal','3-day streak'],['Lights out by 11','9-day streak']].map(([n,s])=>`<div class="card pad row"><div class="grow"><b>${n}</b><div class="muted">${s}</div></div><span class="chip">Check in</span></div>`).join('')}</div>
+      </div><aside class="rail desktop-only">
+        <div class="card pad" style="margin-bottom:12px"><b>Today</b><p class="muted" style="margin:6px 0 0">0 of 6 checked in</p><div class="progress"><i></i></div></div>
+        <div class="card pad"><b>Best streak</b><p class="muted" style="margin:6px 0 0">Read 10 pages · 21 days</p></div>
+      </aside></div></div>`,
+    };
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get('starter');
+    const vp = params.get('vp') || 'desktop';
+    if (vp === 'phone') {
+      document.documentElement.classList.add('phone');
+      document.body.classList.add('phone');
+    }
+
+    const root = document.getElementById('root');
+    const s = STARTERS.find((x) => x.id === id);
+    if (!s) {
+      document.documentElement.style.setProperty('--bg', '#111');
+      document.documentElement.style.setProperty('--text', '#f4f0ea');
+      root.innerHTML = `<div class="page"><h1 class="title">Radiance starters</h1></div>`;
+    } else {
+      applyPack(s.pack);
+      document.title = `${s.title} · ${s.pack}`;
+      root.innerHTML = chrome(s, screens[s.id]());
+    }
+  </script>
+</body>
+</html>

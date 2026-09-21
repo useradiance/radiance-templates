@@ -1,0 +1,29 @@
+{
+  "id": "crashlytics",
+  "version": "0.1.2",
+  "title": "Crash reporting",
+  "description": "Firebase Crashlytics for iOS and Android through React Native Firebase, with a no-op web implementation and error-boundary reporting.",
+  "side": "app",
+  "capabilities": ["crashlytics", "crash-reporting", "error-reporting", "stability"],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "@react-native-firebase/app": "^26.1.0",
+    "@react-native-firebase/crashlytics": "^26.1.0",
+    "expo-build-properties": "~57.0.9"
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "['@react-native-firebase/app', { ios: { disableSPM: true } }],\n    ['expo-build-properties', { ios: { useFrameworks: 'static', forceStaticLinking: ['RNFBApp', 'RNFBAnalytics', 'RNFBRemoteConfig', 'RNFBCrashlytics', 'RNFBPerf', 'RNFBAppCheck', 'RNFBFirestore', 'RNFBAuth', 'RNFBMessaging'] } }],"
+      }
+    ]
+  },
+  "notes": [
+    "Crashlytics is native-only: it needs a development or production build, not Expo Go.",
+    "google-services.json and GoogleService-Info.plist are written by `radiance setup firebase` (paths are in scaffold app.config).",
+    "Crashes are reported on the next app launch, not immediately.",
+    "iOS uses CocoaPods Firebase (disableSPM) with static frameworks \u2014 required on Xcode 26+; SPM + dynamic hits SwiftUICore linker errors."
+  ]
+}

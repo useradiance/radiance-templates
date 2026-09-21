@@ -1,0 +1,58 @@
+{
+  "id": "navigation",
+  "version": "0.2.4",
+  "title": "Navigation & route groups",
+  "description": "Expo Router structure with signed-out `(auth)` and signed-in `(app)` groups, Ephytron-style AuthGate/GuestGate, and a selectable shell (tabs, drawer, or stack).",
+  "side": "app",
+  "capabilities": [
+    "navigation",
+    "routing",
+    "tabs",
+    "drawer",
+    "stack",
+    "route-guards",
+    "auth-gate",
+    "guest-gate",
+    "app-shell"
+  ],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2"
+  },
+  "removes": ["app/index.tsx"],
+  "options": {
+    "shell": {
+      "description": "Primary signed-in navigation chrome.",
+      "type": "single",
+      "choices": ["tabs", "drawer", "stack"],
+      "default": "tabs"
+    }
+  },
+  "optionBindings": {
+    "shell": {
+      "tabs": {
+        "files": "variants/tabs"
+      },
+      "drawer": {
+        "dependencies": {
+          "@react-navigation/drawer": "^7.13.7",
+          "react-native-gesture-handler": "~2.32.0",
+          "react-native-reanimated": "4.5.1",
+          "react-native-worklets": "0.10.1"
+        },
+        "files": "variants/drawer"
+      },
+      "stack": {
+        "files": "variants/stack"
+      }
+    }
+  },
+  "notes": [
+    "Select the shell with `radiance add navigation --option shell=tabs|drawer|stack`.",
+    "Tabs items are declared in lib/registry/tabs.ts; each entry needs a matching route under app/(app)/(tabs)/ (tabs shell) or app/(app)/(drawer)/ (drawer shell).",
+    "Both tabs and drawer shells wrap the chrome group in a Stack so detail routes under app/(app)/ push on top.",
+    "Pushed screens must set `<Stack.Screen options={{ title }} />` — Expo Router otherwise uses the file path (`admin/index`).",
+    "lib/registry/session.ts ships a permissive stub and is replaced by the auth module with the real session.",
+    "AuthGate and GuestGate mirror Ephytron's AuthCheck / FTUE guest redirect pattern."
+  ]
+}

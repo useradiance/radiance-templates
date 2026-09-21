@@ -1,0 +1,54 @@
+{
+  "id": "push-notifications",
+  "version": "0.2.0",
+  "title": "Push notifications",
+  "description": "Expo push notifications with self-only send callable, FCM helper for native tokens, permission flow, device registration and deep-link friendly tap handling.",
+  "side": "both",
+  "capabilities": [
+    "push-notifications",
+    "expo-push",
+    "fcm",
+    "notifications",
+    "device-tokens",
+    "alerts",
+    "reengagement"
+  ],
+  "requires": ["auth", "firestore", "i18n"],
+  "dependencies": {
+    "expo-device": "~57.0.1",
+    "expo-notifications": "~57.0.9"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { PushProvider } from '@/lib/push-provider';",
+        "component": "PushProvider"
+      }
+    ],
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "'expo-notifications',"
+      },
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { sendPushToUser } from './callable/sendPush';"
+      }
+    ]
+  },
+  "firebase": {
+    "services": ["fcm.googleapis.com", "fcmregistrations.googleapis.com"],
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    }
+  },
+  "notes": [
+    "Remote push requires a development build — Expo Go dropped remote notification support on Android.",
+    "sendPushToUser only notifies the authenticated caller (tighten further for admin broadcast callables).",
+    "Non-Expo tokens are sent via Admin FCM (see functions/src/lib/fcm.ts).",
+    "Notification taps emit appEvents.DeepLink when a deeplink/url is present."
+  ]
+}

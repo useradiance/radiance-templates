@@ -1,0 +1,25 @@
+{
+  "id": "deep-linking",
+  "version": "0.1.0",
+  "title": "Deep linking",
+  "description": "Scheme and universal-link helpers that map incoming URLs and notification payloads to Expo Router navigations.",
+  "side": "app",
+  "capabilities": ["deep-linking", "universal-links", "app-links", "notification-routing"],
+  "requires": ["navigation"],
+  "dependencies": {},
+  "env": {
+    "EXPO_PUBLIC_DEEP_LINK_HOST": "Optional HTTPS host for universal / app links (e.g. app.example.com)"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { DeepLinkProvider } from '@/lib/deep-linking';",
+        "component": "DeepLinkProvider"
+      }
+    ]
+  },
+  "notes": [
+    "Configure EXPO_PUBLIC_DEEP_LINK_HOST and extend app.config intent filters for production universal links.",
+    "Push notification payloads may include a `deeplink` string path consumed by DeepLinkProvider."
+  ]
+}

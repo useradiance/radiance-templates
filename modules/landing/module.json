@@ -1,0 +1,23 @@
+{
+  "id": "landing",
+  "version": "0.1.1",
+  "title": "Marketing landing",
+  "description": "Public web marketing routes (hero, features, footer). Unsigned web visitors land here instead of the sign-in screen.",
+  "side": "app",
+  "capabilities": [
+    "landing",
+    "marketing",
+    "marketing-pages",
+    "hero",
+    "footer",
+    "public-site",
+    "homepage"
+  ],
+  "requires": ["i18n", "theme", "navigation"],
+  "overrides": ["app/index.tsx"],
+  "dependencies": {},
+  "notes": [
+    "Overrides app/index.tsx so unsigned web users go to /(marketing).",
+    "Native unsigned users still go to sign-in."
+  ]
+}

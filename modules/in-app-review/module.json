@@ -1,0 +1,12 @@
+{
+  "id": "in-app-review",
+  "version": "0.1.1",
+  "title": "In-app review",
+  "description": "Store review prompt with MMKV cooldown so users are not spammed.",
+  "side": "app",
+  "capabilities": ["in-app-review", "store-review", "ratings", "app-store-review"],
+  "requires": [],
+  "dependencies": {
+    "expo-store-review": "~57.0.2"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "biometrics",
+  "version": "0.1.1",
+  "title": "Biometrics",
+  "description": "LocalAuthentication unlock / step-up with SecureStore-backed preference for requiring biometrics on launch.",
+  "side": "app",
+  "capabilities": ["biometrics", "face-id", "touch-id", "fingerprint", "local-auth", "app-lock"],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "expo-local-authentication": "~57.0.2",
+    "expo-secure-store": "~57.0.3"
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { BiometricGate } from '@/components/BiometricGate';",
+        "component": "BiometricGate"
+      }
+    ]
+  },
+  "notes": [
+    "Enable lock with setAppLockEnabled(true) from settings or onboarding.",
+    "Gate is a no-op until the SecureStore preference is set."
+  ]
+}

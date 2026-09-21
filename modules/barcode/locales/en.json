@@ -1,0 +1,10 @@
+{
+  "barcode": {
+    "title": "Scan",
+    "subtitle": "Point your camera at a barcode or QR code.",
+    "permission": "Camera access is required to scan codes.",
+    "allow": "Allow camera",
+    "scanAgain": "Scan again",
+    "qrLabel": "QR code"
+  }
+}

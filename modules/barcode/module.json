@@ -1,0 +1,21 @@
+{
+  "id": "barcode",
+  "version": "0.2.2",
+  "title": "Barcode scanner",
+  "description": "Camera barcode / QR scanner plus QrCode display for tickets and invites.",
+  "side": "app",
+  "capabilities": ["barcode", "qr-code", "scanner", "inventory-scan", "ticket-scan"],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "expo-camera": "~57.0.4"
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "[\n  'expo-camera',\n  {\n    cameraPermission: 'Allow $(PRODUCT_NAME) to scan barcodes.',\n  },\n],"
+      }
+    ]
+  }
+}

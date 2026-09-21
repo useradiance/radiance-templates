@@ -1,0 +1,24 @@
+{
+  "name": "@useradiance/radiance-templates",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Radiance template catalog: scaffold, feature modules and starters for Expo + Firebase apps",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/useradiance/radiance-templates.git"
+  },
+  "scripts": {
+    "registry:build": "node scripts/build-registry.mjs",
+    "registry:check": "node scripts/build-registry.mjs --check",
+    "test": "node --test scripts/*.test.mjs",
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

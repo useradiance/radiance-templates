@@ -1,0 +1,13 @@
+{
+  "id": "share",
+  "version": "0.1.2",
+  "title": "Share",
+  "description": "Native share sheet helpers and web clipboard/URL copy with optional deep-link URL builder.",
+  "side": "app",
+  "capabilities": ["share", "share-sheet", "clipboard", "social-share", "invite-link"],
+  "requires": ["i18n"],
+  "dependencies": {
+    "expo-sharing": "~57.0.12",
+    "expo-clipboard": "~57.0.1"
+  }
+}

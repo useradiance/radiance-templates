@@ -1,0 +1,27 @@
+rules_version = '2';
+
+// Local Storage emulator rules for the free-plan posture (cloud Auth + emulated Storage).
+// Production Auth tokens often leave `request.auth` null in the emulator, which 403s
+// owner-scoped writes. These rules stay local — free plan never deploys Storage to cloud.
+// Paid projects use `storage.rules` (owner-scoped) and point firebase.json at that file.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /users/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.resource.size < 10 * 1024 * 1024
+        && (
+          request.resource.contentType.matches('image/.*|video/.*|application/pdf')
+          || request.resource.contentType == 'application/octet-stream'
+        );
+    }
+
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.resource.size < 10 * 1024 * 1024;
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "feed": {
+    "title": "Home",
+    "subtitle": "What people around you are sharing",
+    "compose": "New post",
+    "publish": "Share",
+    "whatsOnYourMind": "Share something worth reading",
+    "charactersLeft": "{{count}} characters left",
+    "addImage": "Add a photo",
+    "removeImage": "Remove photo",
+    "like": "Like",
+    "comment": "Comment",
+    "share": "Share",
+    "postTitle": "Post",
+    "anonymous": "Someone",
+    "sending": "Sending…",
+    "emptyTitle": "Your feed is quiet",
+    "emptyDescription": "Share the first post — a photo, a thought, or both.",
+    "suggestions": "People to follow"
+  },
+  "profile": {
+    "title": "Profile",
+    "yourPosts": "Your posts",
+    "changePhoto": "Update photo",
+    "noPostsTitle": "Nothing posted yet",
+    "noPostsDescription": "When you share, your posts show up here.",
+    "signedOutTitle": "Sign in to see your profile"
+  },
+  "people": {
+    "title": "People",
+    "subtitle": "Friends, follows, and people nearby in this app",
+    "followers": "Followers",
+    "following": "Following",
+    "friends": "Friends",
+    "follow": "Follow",
+    "followsYou": "Follows you",
+    "suggested": "Suggested",
+    "posts": "Posts",
+    "noPosts": "No posts yet",
+    "notFound": "This profile is not here",
+    "emptyTitle": "No people yet",
+    "emptyDescription": "When demo data or other accounts show up, they land here."
+  }
+}

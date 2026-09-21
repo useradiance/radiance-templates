@@ -1,0 +1,9 @@
+match /services/{id} {
+  allow read: if true;
+  allow write: if isSignedIn() && (request.auth.token.admin == true || request.auth.token.role == 'admin');
+}
+match /appointments/{id} {
+  allow read: if isSignedIn();
+  allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+  allow update, delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+}

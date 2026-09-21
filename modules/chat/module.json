@@ -1,0 +1,42 @@
+{
+  "id": "chat",
+  "version": "0.4.1",
+  "title": "Chat / messaging",
+  "description": "1:1 and group threads with deferred attachments, timestamps, delivery receipts, long-press emoji reactions, member-scoped rules, and push fan-out to other members.",
+  "side": "both",
+  "capabilities": [
+    "chat",
+    "messaging",
+    "direct-messages",
+    "dm",
+    "threads",
+    "inbox",
+    "realtime-chat",
+    "attachments"
+  ],
+  "requires": ["auth", "firestore", "i18n", "theme", "navigation", "storage"],
+  "dependencies": {},
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { onChatMessageCreated } from './triggers/onChatMessageCreated';"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json",
+    "functions": ["onChatMessageCreated"]
+  },
+  "notes": [
+    "onChatMessageCreated notifies other thread members via Expo push / FCM when device tokens exist.",
+    "Members are stored as memberIds: string[] on each thread.",
+    "Attachments are picked locally and uploaded to users/{uid}/chat/{threadId}/… only on Send, together with any caption text.",
+    "Emoji reactions live on message.reactions; rules allow members to update that field only."
+  ]
+}

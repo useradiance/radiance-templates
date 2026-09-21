@@ -1,0 +1,36 @@
+{
+  "id": "booking",
+  "version": "0.3.0",
+  "extends": "expo-app",
+  "title": "Booking",
+  "description": "Service appointments with RRULE availability slots, Stripe deposits, and push reminders.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "calendar",
+    "stripe",
+    "push-notifications",
+    "functions",
+    "callable-client",
+    "hosting",
+    "analytics",
+    "landing",
+    "onboarding-flow",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": ["booking", "appointments", "scheduling", "reservations"],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "bloom"
+  }
+}

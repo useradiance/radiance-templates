@@ -1,0 +1,51 @@
+{
+  "id": "social-app",
+  "version": "0.6.0",
+  "extends": "expo-app",
+  "title": "Social app",
+  "description": "Social feed with accounts, image posts, likes, comments, follows, friends, search, share, and push/deep links.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "storage",
+    "callable-client",
+    "functions",
+    "analytics",
+    "hosting",
+    "push-notifications",
+    "deep-linking",
+    "comments",
+    "search",
+    "share",
+    "landing",
+    "onboarding-flow",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": [
+    "social-feed",
+    "posts",
+    "likes",
+    "profiles",
+    "image-posts",
+    "timeline",
+    "comments",
+    "search",
+    "share",
+    "followers",
+    "friends"
+  ],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "branded"
+  }
+}

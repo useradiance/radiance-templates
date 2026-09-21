@@ -1,0 +1,41 @@
+{
+  "id": "search",
+  "version": "0.2.0",
+  "title": "Search",
+  "description": "Debounced SearchAutocomplete dropdown, pluggable sources (local / cache / Firestore / API), prefix helpers, SearchField UI, optional Algolia client stub.",
+  "side": "app",
+  "capabilities": ["search", "full-text-search", "prefix-search", "algolia", "discovery", "filter"],
+  "requires": ["firestore", "i18n", "theme"],
+  "dependencies": {},
+  "options": {
+    "backend": {
+      "description": "Search backend",
+      "type": "single",
+      "choices": ["firestore", "algolia"],
+      "default": "firestore"
+    }
+  },
+  "optionBindings": {
+    "backend": {
+      "algolia": {
+        "dependencies": {
+          "algoliasearch": "^5.20.0"
+        },
+        "env": {
+          "EXPO_PUBLIC_ALGOLIA_APP_ID": {
+            "description": "Algolia application id",
+            "required": true
+          },
+          "EXPO_PUBLIC_ALGOLIA_SEARCH_KEY": {
+            "description": "Algolia search-only API key",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "Firestore path expects a lowercase nameLower string or searchKeywords array on documents.",
+    "Algolia option adds client deps only — wire indexing in Cloud Functions separately."
+  ]
+}

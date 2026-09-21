@@ -1,0 +1,63 @@
+{
+  "id": "subscriptions",
+  "version": "0.1.0",
+  "title": "Stripe subscriptions",
+  "description": "Stripe Billing Portal session callable, subscription webhook handlers, and Firestore entitlement mirror for gated features.",
+  "side": "both",
+  "capabilities": [
+    "subscriptions",
+    "stripe-billing",
+    "recurring-payments",
+    "entitlements",
+    "billing-portal",
+    "saas-billing"
+  ],
+  "requires": ["i18n", "theme", "auth", "callable-client", "functions"],
+  "dependencies": {},
+  "env": {
+    "EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key (pk_…)",
+      "required": true
+    }
+  },
+  "secrets": {
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret key (sk_…)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_…)",
+      "required": true
+    }
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "functions/src/index.ts",
+        "marker": "functions",
+        "when": "functions",
+        "block": "export { createBillingPortalSession } from './callable/createBillingPortalSession';\nexport { createSubscriptionCheckout } from './callable/createSubscriptionCheckout';\nexport { stripeSubscriptionWebhook } from './http/stripeSubscriptionWebhook';"
+      },
+      {
+        "file": "lib/callable-contracts.ts",
+        "marker": "contracts",
+        "when": "callable-client",
+        "block": "createBillingPortalSession: {\n    request: { returnUrl: string };\n    response: { url: string };\n  };\n  createSubscriptionCheckout: {\n    request: { priceId: string; successUrl: string; cancelUrl: string };\n    response: { sessionId: string; url: string };\n  };"
+      }
+    ]
+  },
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "functions": [
+      "createBillingPortalSession",
+      "createSubscriptionCheckout",
+      "stripeSubscriptionWebhook"
+    ]
+  },
+  "notes": [
+    "Production: firebase functions:secrets:set STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET.",
+    "Entitlements live at entitlements/{uid} — read with useEntitlement."
+  ]
+}

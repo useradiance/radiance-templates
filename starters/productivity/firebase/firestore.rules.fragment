@@ -1,0 +1,28 @@
+// Projects are private to owner or listed collaborators (memberIds).
+match /projects/{projectId} {
+  function isProjectMember() {
+    return isSignedIn() && (
+      resource.data.ownerId == request.auth.uid
+      || (resource.data.memberIds != null && request.auth.uid in resource.data.memberIds)
+      || request.auth.token.admin == true
+      || request.auth.token.role == 'admin'
+    );
+  }
+
+  allow read, update: if isProjectMember();
+  allow delete: if isSignedIn() && resource.data.ownerId == request.auth.uid;
+  allow create: if isSignedIn() && request.resource.data.ownerId == request.auth.uid;
+
+  match /tasks/{taskId} {
+    allow read, write: if isSignedIn()
+      && (
+        get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid
+        || (
+          get(/databases/$(database)/documents/projects/$(projectId)).data.memberIds != null
+          && request.auth.uid in get(/databases/$(database)/documents/projects/$(projectId)).data.memberIds
+        )
+        || request.auth.token.admin == true
+        || request.auth.token.role == 'admin'
+      );
+  }
+}

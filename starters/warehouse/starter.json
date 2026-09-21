@@ -1,0 +1,47 @@
+{
+  "id": "warehouse",
+  "version": "0.1.1",
+  "extends": "expo-app",
+  "title": "Warehouse",
+  "description": "Inventory admin with categories, items, warehouses, and on-hand stock. DataTable list/edit/delete with admin vs viewer RBAC.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "roles",
+    "admin",
+    "search",
+    "barcode",
+    "demo-data",
+    "functions",
+    "callable-client",
+    "settings",
+    "hosting",
+    "analytics"
+  ],
+  "overlay": "overlay",
+  "capabilities": [
+    "warehouse",
+    "inventory",
+    "stock",
+    "sku",
+    "barcode",
+    "admin-grid",
+    "datatable",
+    "crud",
+    "rbac",
+    "demo-data"
+  ],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "ink"
+  }
+}

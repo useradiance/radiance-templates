@@ -1,0 +1,29 @@
+// Public timeline. Anyone signed in can read; only the author can change their own post.
+match /posts/{postId} {
+  allow read: if isSignedIn();
+  allow create: if isSignedIn()
+    && request.resource.data.authorId == request.auth.uid
+    && request.resource.data.text is string
+    && request.resource.data.text.size() <= 1000;
+  allow update: if isSignedIn()
+    && (resource.data.authorId == request.auth.uid
+        || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likeCount', 'commentCount']));
+  allow delete: if isSignedIn() && resource.data.authorId == request.auth.uid;
+
+  // One like document per user keeps the vote idempotent.
+  match /likes/{userId} {
+    allow read: if isSignedIn();
+    allow write: if isOwner(userId);
+  }
+}
+
+match /follows/{followId} {
+  allow read: if isSignedIn();
+  allow create: if isSignedIn()
+    && request.resource.data.followerId == request.auth.uid
+    && request.resource.data.followeeId is string
+    && request.resource.data.followeeId != request.auth.uid
+    && followId == request.auth.uid + '_' + request.resource.data.followeeId;
+  allow delete: if isSignedIn() && resource.data.followerId == request.auth.uid;
+  allow update: if false;
+}

@@ -1,0 +1,11 @@
+{
+  "storage": {
+    "chooseImage": "Choose an image",
+    "uploading": "Uploading… {{percent}}%",
+    "errors": {
+      "permissionDenied": "We need access to your photos to upload an image.",
+      "signInRequired": "Sign in to upload files.",
+      "uploadFailed": "The upload did not finish. Please try again."
+    }
+  }
+}

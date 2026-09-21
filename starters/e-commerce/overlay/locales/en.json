@@ -1,0 +1,36 @@
+{
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Curated picks, ready to ship",
+    "featured": "Featured",
+    "addToCart": "Add to cart",
+    "productNotFound": "This product is no longer available",
+    "emptyTitle": "Nothing on the shelves yet",
+    "emptyDescription": "Products will appear here once the catalog is seeded.",
+    "checkout": "Checkout",
+    "checkoutHint": "{{count}} items · total {{total}}. Prices are confirmed on the server.",
+    "payWithStripe": "Pay with Stripe",
+    "checkoutError": "Checkout failed. Try again.",
+    "discountCode": "Discount code",
+    "discountPlaceholder": "SAVE10",
+    "inStock": "{{count}} in stock",
+    "soldOut": "Sold out"
+  },
+  "cart": {
+    "title": "Cart",
+    "subtitle": "Review and checkout when you are ready",
+    "total": "Total",
+    "checkout": "Checkout",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity",
+    "emptyTitle": "Your cart is empty",
+    "emptyDescription": "Browse the shop and add something you like."
+  },
+  "orders": {
+    "title": "Orders",
+    "subtitle": "Payments that made it home",
+    "emptyTitle": "No orders yet",
+    "emptyDescription": "When checkout succeeds, your orders show up here.",
+    "status": "Status: {{status}}"
+  }
+}

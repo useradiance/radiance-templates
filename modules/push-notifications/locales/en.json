@@ -1,0 +1,8 @@
+{
+  "push": {
+    "permissionTitle": "Stay in the loop",
+    "permissionBody": "Turn on notifications to hear about what matters in this app.",
+    "enable": "Enable notifications",
+    "denied": "Notifications are off. You can turn them on in system settings."
+  }
+}

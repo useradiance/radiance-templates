@@ -1,0 +1,18 @@
+{
+  "id": "places",
+  "version": "0.1.0",
+  "title": "Places & geofencing",
+  "description": "Google Places text search helpers and simple circular geofence enter/exit detection on top of the maps module.",
+  "side": "app",
+  "capabilities": ["places", "geofencing", "place-search", "nearby", "check-in", "location-fence"],
+  "requires": ["maps", "i18n", "theme"],
+  "dependencies": {
+    "expo-location": "~57.0.8"
+  },
+  "env": {
+    "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": {
+      "description": "Google Maps / Places API key",
+      "required": true
+    }
+  }
+}

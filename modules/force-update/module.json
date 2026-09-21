@@ -1,0 +1,43 @@
+{
+  "id": "force-update",
+  "version": "0.1.0",
+  "title": "Force update gate",
+  "description": "Blocks the app when the installed version is below Remote Config min_app_version, with a themed update screen.",
+  "side": "app",
+  "capabilities": ["force-update", "minimum-version", "app-update-gate", "version-check"],
+  "requires": ["i18n", "theme", "remote-config"],
+  "dependencies": {
+    "expo-application": "~57.0.2",
+    "expo-constants": "~57.0.11"
+  },
+  "env": {
+    "EXPO_PUBLIC_IOS_STORE_URL": {
+      "description": "App Store URL opened by the force-update CTA on iOS",
+      "required": false,
+      "prompt": false
+    },
+    "EXPO_PUBLIC_ANDROID_STORE_URL": {
+      "description": "Play Store URL opened by the force-update CTA on Android",
+      "required": false,
+      "prompt": false
+    },
+    "EXPO_PUBLIC_WEB_UPDATE_URL": {
+      "description": "Optional URL opened by the force-update CTA on web (defaults to a page reload)",
+      "required": false,
+      "prompt": false
+    }
+  },
+  "wire": {
+    "providers": [
+      {
+        "import": "import { ForceUpdateGate } from '@/components/ForceUpdateGate';",
+        "component": "ForceUpdateGate"
+      }
+    ]
+  },
+  "notes": [
+    "Compares expo-application nativeApplicationVersion (or Constants.expoConfig.version) to remote-config min_app_version.",
+    "Wraps children; when outdated, shows a blocking screen instead of the app tree.",
+    "In __DEV__ on iOS/Android, Update now simulates the update (MMKV ack) instead of opening the store."
+  ]
+}

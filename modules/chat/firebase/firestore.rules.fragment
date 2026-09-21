@@ -1,0 +1,26 @@
+match /threads/{threadId} {
+  function isMember() {
+    return isSignedIn() && request.auth.uid in resource.data.memberIds;
+  }
+  function isMemberOnCreate() {
+    return isSignedIn() && request.auth.uid in request.resource.data.memberIds;
+  }
+  function isThreadMember() {
+    return isSignedIn()
+      && request.auth.uid in get(/databases/$(database)/documents/threads/$(threadId)).data.memberIds;
+  }
+
+  allow read, update: if isMember();
+  allow create: if isMemberOnCreate();
+  allow delete: if isMember();
+
+  match /messages/{messageId} {
+    allow read: if isThreadMember();
+    allow create: if isThreadMember()
+      && request.resource.data.senderId == request.auth.uid;
+    // Members may update reactions and their own delivery/seen receipts.
+    allow update: if isThreadMember()
+      && request.resource.data.diff(resource.data).affectedKeys()
+        .hasOnly(['reactions', 'deliveredTo', 'seenBy']);
+  }
+}

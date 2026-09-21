@@ -1,0 +1,47 @@
+{
+  "id": "e-commerce",
+  "version": "0.5.0",
+  "extends": "expo-app",
+  "title": "Storefront",
+  "description": "Product catalogue with variants, inventory, discounts, MMKV cart, Stripe Checkout, and order emails.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "storage",
+    "analytics",
+    "hosting",
+    "callable-client",
+    "functions",
+    "stripe",
+    "cart",
+    "search",
+    "email",
+    "deep-linking",
+    "landing",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": [
+    "e-commerce",
+    "storefront",
+    "product-catalog",
+    "shopping-cart",
+    "checkout",
+    "orders",
+    "stripe",
+    "search"
+  ],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "contrast"
+  }
+}

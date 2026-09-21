@@ -1,0 +1,17 @@
+// Owner-scoped uploads: a user may only write inside their own folder.
+match /users/{userId}/{allPaths=**} {
+  allow read: if isSignedIn();
+  allow write: if isOwner(userId)
+    && request.resource.size < 10 * 1024 * 1024
+    && (
+      request.resource.contentType.matches('image/.*|video/.*|application/pdf')
+      // Web pickers often report SVG / unknown blobs as octet-stream.
+      || request.resource.contentType == 'application/octet-stream'
+    );
+}
+
+// Anything published for the whole app to read.
+match /public/{allPaths=**} {
+  allow read: if true;
+  allow write: if isSignedIn() && request.resource.size < 10 * 1024 * 1024;
+}

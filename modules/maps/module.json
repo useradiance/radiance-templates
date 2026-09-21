@@ -1,0 +1,47 @@
+{
+  "id": "maps",
+  "version": "0.1.1",
+  "title": "Maps",
+  "description": "Cross-platform map view (react-native-maps on native, Google Maps JS on web) with location permission helpers.",
+  "side": "app",
+  "capabilities": ["maps", "google-maps", "location", "map-markers", "geolocation"],
+  "requires": ["i18n", "theme"],
+  "dependencies": {
+    "react-native-maps": "1.27.2",
+    "expo-location": "~57.0.8"
+  },
+  "env": {
+    "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": {
+      "description": "Google Maps API key for web + native map tiles (enable Maps JavaScript API)",
+      "required": true
+    },
+    "EXPO_PUBLIC_GOOGLE_MAPS_MAP_ID": {
+      "description": "Optional Google Maps map ID (advanced markers / styling)",
+      "required": false,
+      "prompt": false
+    }
+  },
+  "wire": {
+    "markers": [
+      {
+        "file": "app.config.ts",
+        "marker": "ios",
+        "block": "config: { googleMapsApiKey: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY },"
+      },
+      {
+        "file": "app.config.ts",
+        "marker": "android",
+        "block": "config: { googleMaps: { apiKey: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY } },"
+      },
+      {
+        "file": "app.config.ts",
+        "marker": "plugins",
+        "block": "[\n  'expo-location',\n  {\n    locationWhenInUsePermission:\n      'Allow $(PRODUCT_NAME) to use your location.',\n  },\n],"
+      }
+    ]
+  },
+  "notes": [
+    "Requires a development build for native maps (not Expo Go for full Google Maps config).",
+    "Not included in starters by default — add with `radiance add maps`."
+  ]
+}

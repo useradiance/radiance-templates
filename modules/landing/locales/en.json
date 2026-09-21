@@ -1,0 +1,16 @@
+{
+  "landing": {
+    "heroTitle": "Built to ship",
+    "heroBody": "A real product on web and native — not a prototype you throw away.",
+    "heroEyebrow": "Radiance starters",
+    "getStarted": "Sign in",
+    "createAccount": "Create account",
+    "feature1Title": "One catalogue",
+    "feature1Body": "Auth, data, and payments are already wired. You add the product.",
+    "feature2Title": "Web and native",
+    "feature2Body": "The same app in the browser and on a phone, with a design system that holds.",
+    "feature3Title": "Yours to keep",
+    "feature3Body": "Export the project, connect your Firebase, and keep building.",
+    "footer": "Replace this copy in locales/en.json — it is your marketing homepage."
+  }
+}

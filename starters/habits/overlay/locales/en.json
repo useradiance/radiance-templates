@@ -1,0 +1,13 @@
+{
+  "habits": {
+    "title": "Habits",
+    "subtitle": "Tap to check in today",
+    "new": "New habit",
+    "add": "Add",
+    "streak": "{{count}}-day streak",
+    "checkedIn": "Checked in",
+    "today": "Today",
+    "history": "This month",
+    "reminderHour": "Daily reminder hour (0–23)"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "community",
+  "version": "0.2.0",
+  "extends": "expo-app",
+  "title": "Community",
+  "description": "Forum channels with comments, search, push on replies, moderation, and roles.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "comments",
+    "search",
+    "moderation",
+    "roles",
+    "push-notifications",
+    "hosting",
+    "analytics",
+    "callable-client",
+    "functions",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": ["community", "forum", "channels", "discussion"],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "violet"
+  }
+}

@@ -1,0 +1,19 @@
+match /categories/{id} {
+  allow read: if isSignedIn();
+  allow create, update, delete: if isAdmin();
+}
+
+match /items/{id} {
+  allow read: if isSignedIn();
+  allow create, update, delete: if isAdmin();
+}
+
+match /warehouses/{id} {
+  allow read: if isSignedIn();
+  allow create, update, delete: if isAdmin();
+}
+
+match /stock/{id} {
+  allow read: if isSignedIn();
+  allow create, update, delete: if isAdmin();
+}

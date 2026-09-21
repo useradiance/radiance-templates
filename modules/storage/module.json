@@ -1,0 +1,37 @@
+{
+  "id": "storage",
+  "version": "0.2.1",
+  "title": "Cloud Storage & media uploads",
+  "description": "Firebase Storage client with resumable uploads, progress reporting, path-in-Firestore + download URL TTL cache, image picking and owner-scoped security rules.",
+  "side": "app",
+  "capabilities": [
+    "storage",
+    "file-upload",
+    "image-upload",
+    "media",
+    "avatars",
+    "attachments",
+    "download-urls",
+    "upload-progress",
+    "url-cache"
+  ],
+  "requires": ["i18n", "theme", "auth"],
+  "dependencies": {
+    "expo-image-picker": "~57.0.15"
+  },
+  "firebase": {
+    "services": ["firebasestorage.googleapis.com", "storage.googleapis.com"],
+    "emulators": {
+      "storage": { "port": 9199 }
+    },
+    "rules": {
+      "storage": "firebase/storage.rules.fragment"
+    }
+  },
+  "notes": [
+    "Store storage paths in Firestore (e.g. avatarStoragePath), not signed URLs. Use useStorageUrl / resolveDownloadUrl.",
+    "Uploads are owner-scoped under users/{uid}/ by default; avatars/{uid} is the canonical avatar path.",
+    "Cloud Storage for Firebase requires the project to have a default bucket provisioned.",
+    "Free plan uses storage.emulator.rules locally (cloud Auth tokens often leave request.auth null in the Storage emulator). Paid deploy uses storage.rules."
+  ]
+}

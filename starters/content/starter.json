@@ -1,0 +1,45 @@
+{
+  "id": "content",
+  "version": "0.2.0",
+  "extends": "expo-app",
+  "title": "Content / CMS",
+  "description": "Article CMS with drafts, publishing, comments, search, bookmarks, SEO, and Hosting.",
+  "modules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "firestore",
+    "forms",
+    "auth",
+    "storage",
+    "seo",
+    "hosting",
+    "analytics",
+    "search",
+    "comments",
+    "functions",
+    "callable-client",
+    "landing",
+    "demo-data"
+  ],
+  "overlay": "overlay",
+  "capabilities": [
+    "content",
+    "cms",
+    "articles",
+    "blog",
+    "reader",
+    "bookmarks",
+    "publishing",
+    "comments"
+  ],
+  "firebase": {
+    "rules": {
+      "firestore": "firebase/firestore.rules.fragment"
+    },
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "defaults": {
+    "themePack": "paper"
+  }
+}
