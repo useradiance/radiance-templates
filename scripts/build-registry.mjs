@@ -9,10 +9,21 @@ import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from '
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import prettier from 'prettier';
+
 import { assertExpoDeps } from './check-expo-deps.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const checkOnly = process.argv.includes('--check');
+
+/** Match `yarn format` so registry:check and format:check cannot disagree. */
+async function serializeRegistry(registry, registryPath) {
+  const config = (await prettier.resolveConfig(registryPath)) ?? {};
+  return prettier.format(JSON.stringify(registry), {
+    ...config,
+    filepath: registryPath,
+  });
+}
 
 const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'));
 
@@ -150,7 +161,7 @@ const registry = {
 };
 
 const registryPath = join(root, 'registry.json');
-const serialized = `${JSON.stringify(registry, null, 2)}\n`;
+const serialized = await serializeRegistry(registry, registryPath);
 
 if (checkOnly) {
   const current = readFileSync(registryPath, 'utf8');

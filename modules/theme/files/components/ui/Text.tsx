@@ -4,13 +4,7 @@ import { useTheme } from '@/lib/theme/context';
 
 export type TextVariant = 'display' | 'title' | 'subtitle' | 'body' | 'label' | 'caption';
 export type TextTone =
-  | 'default'
-  | 'muted'
-  | 'inverted'
-  | 'primary'
-  | 'success'
-  | 'warning'
-  | 'danger';
+  'default' | 'muted' | 'inverted' | 'primary' | 'success' | 'warning' | 'danger';
 
 export type TextProps = RNTextProps & {
   variant?: TextVariant;

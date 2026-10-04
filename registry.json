@@ -35,9 +35,7 @@
         "demo-data"
       ],
       "capabilities": ["booking", "appointments", "scheduling", "reservations"],
-      "defaults": {
-        "themePack": "bloom"
-      }
+      "defaults": { "themePack": "bloom" }
     },
     {
       "id": "community",
@@ -65,9 +63,7 @@
         "demo-data"
       ],
       "capabilities": ["community", "forum", "channels", "discussion"],
-      "defaults": {
-        "themePack": "violet"
-      }
+      "defaults": { "themePack": "violet" }
     },
     {
       "id": "content",
@@ -104,9 +100,7 @@
         "publishing",
         "comments"
       ],
-      "defaults": {
-        "themePack": "paper"
-      }
+      "defaults": { "themePack": "paper" }
     },
     {
       "id": "e-commerce",
@@ -145,9 +139,7 @@
         "stripe",
         "search"
       ],
-      "defaults": {
-        "themePack": "contrast"
-      }
+      "defaults": { "themePack": "contrast" }
     },
     {
       "id": "events",
@@ -176,9 +168,7 @@
         "demo-data"
       ],
       "capabilities": ["events", "rsvp", "tickets", "event-list"],
-      "defaults": {
-        "themePack": "flare"
-      }
+      "defaults": { "themePack": "flare" }
     },
     {
       "id": "habits",
@@ -200,9 +190,7 @@
         "hosting"
       ],
       "capabilities": ["habits", "streaks", "check-in", "daily-goals"],
-      "defaults": {
-        "themePack": "citrus"
-      }
+      "defaults": { "themePack": "citrus" }
     },
     {
       "id": "local-business",
@@ -225,9 +213,7 @@
         "landing"
       ],
       "capabilities": ["local-business", "store-locator", "contact", "hours", "directory"],
-      "defaults": {
-        "themePack": "grove"
-      }
+      "defaults": { "themePack": "grove" }
     },
     {
       "id": "marketplace",
@@ -255,9 +241,7 @@
         "demo-data"
       ],
       "capabilities": ["marketplace", "listings", "buy-sell", "classifieds", "two-sided"],
-      "defaults": {
-        "themePack": "hearth"
-      }
+      "defaults": { "themePack": "hearth" }
     },
     {
       "id": "messaging-app",
@@ -284,9 +268,7 @@
         "demo-data"
       ],
       "capabilities": ["messaging", "chat", "dm", "inbox", "conversations"],
-      "defaults": {
-        "themePack": "ocean"
-      }
+      "defaults": { "themePack": "ocean" }
     },
     {
       "id": "productivity",
@@ -322,9 +304,7 @@
         "offline-editing",
         "collaboration"
       ],
-      "defaults": {
-        "themePack": "neutral"
-      }
+      "defaults": { "themePack": "neutral" }
     },
     {
       "id": "saas",
@@ -365,9 +345,7 @@
         "billing",
         "demo-data"
       ],
-      "defaults": {
-        "themePack": "ink"
-      }
+      "defaults": { "themePack": "ink" }
     },
     {
       "id": "social-app",
@@ -410,9 +388,7 @@
         "followers",
         "friends"
       ],
-      "defaults": {
-        "themePack": "branded"
-      }
+      "defaults": { "themePack": "branded" }
     },
     {
       "id": "warehouse",
@@ -451,9 +427,7 @@
         "rbac",
         "demo-data"
       ],
-      "defaults": {
-        "themePack": "ink"
-      }
+      "defaults": { "themePack": "ink" }
     }
   ],
   "modules": [

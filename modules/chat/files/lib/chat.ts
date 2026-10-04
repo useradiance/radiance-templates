@@ -125,9 +125,7 @@ export function isImageAttachment(attachment: ChatAttachment | null | undefined)
 
 export function messageTimeMs(message: ChatMessage): number | null {
   const created = message.createdAt as
-    | { seconds?: number; toMillis?: () => number }
-    | null
-    | undefined;
+    { seconds?: number; toMillis?: () => number } | null | undefined;
   if (!created) return null;
   if (typeof created.toMillis === 'function') return created.toMillis();
   if (typeof created.seconds === 'number') return created.seconds * 1000;

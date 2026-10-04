@@ -19,14 +19,14 @@ radiance add roles
 
 ## What it adds
 
-| Path                                      | Purpose                                           |
+| Path | Purpose |
 | ----------------------------------------- | ------------------------------------------------- | --------------------- |
-| `hooks/useClaims.ts`                      | `useClaims`, `hasRole` — reads `getIdTokenResult` |
-| `components/RequireRole.tsx`              | Renders children only when the user has the role  |
-| `lib/roles.ts`                            | `setUserRole(uid, role \\                         | null)` client wrapper |
-| `functions/src/callable/setUserClaims.ts` | Admin-gated Admin SDK claims writer               |
-| `firebase/firestore.rules.fragment`       | `isAdmin()` / `hasRole(role)` helpers             |
-| `locales/en.json`                         | Denied / checking copy                            |
+| `hooks/useClaims.ts` | `useClaims`, `hasRole` — reads `getIdTokenResult` |
+| `components/RequireRole.tsx` | Renders children only when the user has the role |
+| `lib/roles.ts` | `setUserRole(uid, role \\                         | null)` client wrapper |
+| `functions/src/callable/setUserClaims.ts` | Admin-gated Admin SDK claims writer |
+| `firebase/firestore.rules.fragment` | `isAdmin()` / `hasRole(role)` helpers |
+| `locales/en.json` | Denied / checking copy |
 
 ## Identity model
 
