@@ -19,11 +19,12 @@ radiance add consent
 
 ## What it adds
 
-| Path                       | Purpose           |
-| -------------------------- | ----------------- |
-| `stores/consent.ts`        | `useConsentStore` |
-| `lib/consent-provider.tsx` | ATT + web banner  |
-| `locales/en.json`          | Consent copy      |
+| Path                         | Purpose                                |
+| ---------------------------- | -------------------------------------- |
+| `stores/consent.ts`          | `useConsentStore`                      |
+| `lib/consent-provider.tsx`   | ATT + web banner                       |
+| `lib/tracking-permission.ts` | iOS ATT request (`.web.ts` is a no-op) |
+| `locales/en.json`            | Consent copy                           |
 
 ## Usage
 

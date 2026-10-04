@@ -1,6 +1,6 @@
 {
   "id": "storage",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "title": "Cloud Storage & media uploads",
   "description": "Firebase Storage client with resumable uploads, progress reporting, path-in-Firestore + download URL TTL cache, image picking and owner-scoped security rules.",
   "side": "app",
@@ -15,14 +15,23 @@
     "upload-progress",
     "url-cache"
   ],
-  "requires": ["i18n", "theme", "auth"],
+  "requires": [
+    "i18n",
+    "theme",
+    "auth"
+  ],
   "dependencies": {
     "expo-image-picker": "~57.0.15"
   },
   "firebase": {
-    "services": ["firebasestorage.googleapis.com", "storage.googleapis.com"],
+    "services": [
+      "firebasestorage.googleapis.com",
+      "storage.googleapis.com"
+    ],
     "emulators": {
-      "storage": { "port": 9199 }
+      "storage": {
+        "port": 9199
+      }
     },
     "rules": {
       "storage": "firebase/storage.rules.fragment"

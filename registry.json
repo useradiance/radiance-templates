@@ -1,11 +1,11 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.1",
   "expoSdk": 57,
   "generatedAt": null,
   "scaffold": {
     "id": "expo-app",
     "path": "scaffold/expo-app",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "requiredModules": [
       "i18n",
       "theme",
@@ -564,7 +564,7 @@
     {
       "id": "auth",
       "path": "modules/auth",
-      "version": "0.2.5",
+      "version": "0.2.6",
       "title": "Authentication",
       "description": "Firebase Authentication with email/Google/Apple/anonymous sign-in, password reset, optional enforced email verification, delete-account callable, and dual idempotent profile bootstrap.",
       "side": "both",
@@ -665,7 +665,7 @@
     {
       "id": "callable-client",
       "path": "modules/callable-client",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "title": "Typed callable client",
       "description": "Typed wrappers around httpsCallable with translated error codes, retries, selective emulator flags, logging and logout events on unauthenticated failures.",
       "side": "app",
@@ -772,7 +772,7 @@
     {
       "id": "consent",
       "path": "modules/consent",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "title": "Privacy consent",
       "description": "Analytics / ATT consent gate with MMKV persistence and a web cookie-style banner component.",
       "side": "app",
@@ -874,7 +874,7 @@
     {
       "id": "firestore",
       "path": "modules/firestore",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "title": "Firestore data layer",
       "description": "Cloud Firestore client with local caching, realtime hooks (status/fromCache), optimistic mutations, sync UI, and an optional RNFirebase native persistence path.",
       "side": "app",
@@ -1188,7 +1188,7 @@
     {
       "id": "onboarding-flow",
       "path": "modules/onboarding-flow",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "title": "Onboarding flow",
       "description": "Post-signup multi-step onboarding using theme Onboarding primitives, with MMKV completion flag and route gate.",
       "side": "app",
@@ -1412,7 +1412,7 @@
     {
       "id": "storage",
       "path": "modules/storage",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "title": "Cloud Storage & media uploads",
       "description": "Firebase Storage client with resumable uploads, progress reporting, path-in-Firestore + download URL TTL cache, image picking and owner-scoped security rules.",
       "side": "app",

@@ -7,12 +7,11 @@ import {
 } from 'firebase/functions';
 
 import type { CallableContracts } from '@/lib/callable-contracts';
-import { emulatorHost, useFunctionsEmulator } from '@/lib/env';
+import { emulatorHost, functionsEmulatorPort, useFunctionsEmulator } from '@/lib/env';
 import { appEvents } from '@/lib/events';
 import { getFirebaseApp } from '@/lib/firebase';
 import { logger } from '@/lib/logger';
 
-const FUNCTIONS_EMULATOR_PORT = 5001;
 const DEFAULT_REGION = 'us-central1';
 
 let functions: Functions | undefined;
@@ -23,7 +22,7 @@ export function getFunctionsInstance(): Functions {
   functions = getFunctions(getFirebaseApp(), DEFAULT_REGION);
 
   if (useFunctionsEmulator) {
-    connectFunctionsEmulator(functions, emulatorHost, FUNCTIONS_EMULATOR_PORT);
+    connectFunctionsEmulator(functions, emulatorHost, functionsEmulatorPort);
   }
 
   return functions;

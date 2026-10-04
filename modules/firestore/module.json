@@ -1,6 +1,6 @@
 {
   "id": "firestore",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "title": "Firestore data layer",
   "description": "Cloud Firestore client with local caching, realtime hooks (status/fromCache), optimistic mutations, sync UI, and an optional RNFirebase native persistence path.",
   "side": "app",
@@ -16,13 +16,19 @@
     "sync-status",
     "rnfirebase-firestore"
   ],
-  "requires": ["i18n", "theme"],
+  "requires": [
+    "i18n",
+    "theme"
+  ],
   "dependencies": {},
   "options": {
     "nativePersistence": {
       "description": "Native cache strategy. `rnfirebase` enables cross-restart disk persistence (dev client).",
       "type": "single",
-      "choices": ["memory", "rnfirebase"],
+      "choices": [
+        "memory",
+        "rnfirebase"
+      ],
       "default": "memory"
     }
   },
@@ -39,9 +45,14 @@
     }
   },
   "firebase": {
-    "services": ["firestore.googleapis.com", "firebaserules.googleapis.com"],
+    "services": [
+      "firestore.googleapis.com",
+      "firebaserules.googleapis.com"
+    ],
     "emulators": {
-      "firestore": { "port": 8080 }
+      "firestore": {
+        "port": 8080
+      }
     },
     "indexes": "firebase/firestore.indexes.json"
   },

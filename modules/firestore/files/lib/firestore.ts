@@ -8,11 +8,9 @@ import {
   type Firestore,
 } from 'firebase/firestore';
 
-import { emulatorHost, useFirestoreEmulator } from '@/lib/env';
+import { emulatorHost, firestoreEmulatorPort, useFirestoreEmulator } from '@/lib/env';
 import { getFirebaseApp } from '@/lib/firebase';
 import { isWeb } from '@/lib/platform';
-
-const FIRESTORE_EMULATOR_PORT = 8080;
 
 let db: Firestore | undefined;
 
@@ -42,7 +40,7 @@ export function getDb(): Firestore {
   }
 
   if (useFirestoreEmulator) {
-    connectFirestoreEmulator(db, emulatorHost, FIRESTORE_EMULATOR_PORT);
+    connectFirestoreEmulator(db, emulatorHost, firestoreEmulatorPort);
   }
 
   return db;

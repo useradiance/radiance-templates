@@ -2,6 +2,7 @@ import { Redirect, usePathname, useSegments } from 'expo-router';
 import { useEffect, useState, type ReactNode } from 'react';
 
 import { StateView } from '@/components/ui/StateView';
+import { previewGuest } from '@/lib/env';
 import { useSession } from '@/lib/registry/session';
 import { useOnboardingStore } from '@/stores/onboarding';
 
@@ -35,6 +36,11 @@ export function OnboardingGate({ children }: { children: ReactNode }) {
     if (onboarding) {
       return <Redirect href="/" />;
     }
+    return <>{children}</>;
+  }
+
+  // The hosted preview's guest is there to see the app, not its walkthrough.
+  if (previewGuest && !onboarding) {
     return <>{children}</>;
   }
 

@@ -1,6 +1,6 @@
 {
   "id": "consent",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "title": "Privacy consent",
   "description": "Analytics / ATT consent gate with MMKV persistence and a web cookie-style banner component.",
   "side": "app",

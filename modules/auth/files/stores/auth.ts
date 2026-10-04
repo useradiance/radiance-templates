@@ -12,6 +12,7 @@ import {
 import { create } from 'zustand';
 
 import { getFirebaseAuth } from '@/lib/auth';
+import { previewGuest } from '@/lib/env';
 import { authErrorKey } from '@/lib/auth-errors';
 import { appEvents } from '@/lib/events';
 import { logger } from '@/lib/logger';
@@ -62,10 +63,24 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   isSubmitting: false,
   errorKey: null,
 
-  subscribe: () =>
-    onAuthStateChanged(getFirebaseAuth(), (user) => {
+  subscribe: () => {
+    // Once per launch: a guest who signs out of a preview stays signed out.
+    let guestTried = false;
+    return onAuthStateChanged(getFirebaseAuth(), (user) => {
+      if (!user && previewGuest && !guestTried) {
+        guestTried = true;
+        // Stay "initializing" so the sign-in screen never flashes; the listener
+        // fires again with the guest. If anonymous sign-in is not enabled on
+        // this Firebase project, fall back to the normal sign-in screen.
+        signInAnonymously(getFirebaseAuth()).catch((error) => {
+          logger.warn('preview guest sign-in failed', error);
+          set({ user: null, isInitializing: false });
+        });
+        return;
+      }
       set({ user: user ? toAuthUser(user) : null, isInitializing: false });
-    }),
+    });
+  },
 
   clearError: () => set({ errorKey: null }),
 

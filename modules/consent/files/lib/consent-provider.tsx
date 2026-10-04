@@ -1,4 +1,3 @@
-import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 import { useEffect, type ReactNode } from 'react';
 import { Platform, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/Button';
 import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/lib/theme';
+import { requestTrackingPermission } from '@/lib/tracking-permission';
 import { useConsentStore } from '@/stores/consent';
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
@@ -16,9 +16,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (Platform.OS !== 'ios' || analytics !== null) return;
-    void requestTrackingPermissionsAsync().then(({ status }) => {
-      setAnalytics(status === 'granted');
-    });
+    void requestTrackingPermission().then(setAnalytics);
   }, [analytics, setAnalytics]);
 
   return (

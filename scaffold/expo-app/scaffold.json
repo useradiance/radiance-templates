@@ -1,10 +1,15 @@
 {
   "id": "expo-app",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "title": "Expo app scaffold",
   "description": "Generic Expo Router + Firebase application shell. Runs on its own and is the base every Radiance module and starter builds on.",
   "expoSdk": 57,
-  "requiredModules": ["i18n", "theme", "navigation", "settings"],
+  "requiredModules": [
+    "i18n",
+    "theme",
+    "navigation",
+    "settings"
+  ],
   "markers": {
     "providers": "lib/registry/providers.tsx",
     "firestoreRules": "firestore.rules",

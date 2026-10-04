@@ -69,6 +69,28 @@ function emulatorEnabled(flag: string | undefined): boolean {
   return true;
 }
 
+/**
+ * Emulator ports, overridable for a machine that runs a second emulator suite
+ * beside its own (Radiance's local previews do). Each env var is referenced
+ * statically so Metro can inline it; the defaults are Firebase's.
+ */
+function port(value: string | undefined, fallback: number): number {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+export const authEmulatorPort = port(process.env.EXPO_PUBLIC_AUTH_EMULATOR_PORT, 9099);
+export const firestoreEmulatorPort = port(process.env.EXPO_PUBLIC_FIRESTORE_EMULATOR_PORT, 8080);
+export const functionsEmulatorPort = port(process.env.EXPO_PUBLIC_FUNCTIONS_EMULATOR_PORT, 5001);
+export const storageEmulatorPort = port(process.env.EXPO_PUBLIC_STORAGE_EMULATOR_PORT, 9199);
+
+/**
+ * Set only by Radiance's hosted preview build: sign in an anonymous guest on
+ * launch and skip onboarding, so the preview opens on the app itself instead of
+ * its sign-in screen. Written to the preview's own `.env`, which is gitignored —
+ * it never reaches the repository or a native build.
+ */
+export const previewGuest = process.env.EXPO_PUBLIC_PREVIEW_GUEST === 'true';
+
 export const useAuthEmulator = emulatorEnabled(process.env.EXPO_PUBLIC_EMULATOR_AUTH);
 export const useFirestoreEmulator = emulatorEnabled(process.env.EXPO_PUBLIC_EMULATOR_FIRESTORE);
 export const useFunctionsEmulator = emulatorEnabled(process.env.EXPO_PUBLIC_EMULATOR_FUNCTIONS);

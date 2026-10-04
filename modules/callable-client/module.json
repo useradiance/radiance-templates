@@ -1,15 +1,24 @@
 {
   "id": "callable-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "title": "Typed callable client",
   "description": "Typed wrappers around httpsCallable with translated error codes, retries, selective emulator flags, logging and logout events on unauthenticated failures.",
   "side": "app",
-  "capabilities": ["callable-client", "api-client", "api-errors", "backend-calls"],
-  "requires": ["i18n"],
+  "capabilities": [
+    "callable-client",
+    "api-client",
+    "api-errors",
+    "backend-calls"
+  ],
+  "requires": [
+    "i18n"
+  ],
   "dependencies": {},
   "firebase": {
     "emulators": {
-      "functions": { "port": 5001 }
+      "functions": {
+        "port": 5001
+      }
     }
   },
   "notes": [

@@ -10,10 +10,9 @@ import {
 } from 'firebase/storage';
 
 import { getFirebaseAuth } from '@/lib/auth';
-import { emulatorHost, useStorageEmulator } from '@/lib/env';
+import { emulatorHost, storageEmulatorPort, useStorageEmulator } from '@/lib/env';
 import { getFirebaseApp } from '@/lib/firebase';
 
-const STORAGE_EMULATOR_PORT = 9199;
 const URL_CACHE_TTL_MS = 2 * 60 * 60 * 1000;
 
 type CachedUrl = { url: string; expiresAt: number };
@@ -44,7 +43,7 @@ export function getStorageInstance(): FirebaseStorage {
   storage = getStorage(getFirebaseApp());
 
   if (useStorageEmulator) {
-    connectStorageEmulator(storage, emulatorHost, STORAGE_EMULATOR_PORT);
+    connectStorageEmulator(storage, emulatorHost, storageEmulatorPort);
   }
 
   return storage;

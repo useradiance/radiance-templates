@@ -1,6 +1,6 @@
 {
   "name": "@useradiance/radiance-templates",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Radiance template catalog: scaffold, feature modules and starters for Expo + Firebase apps",
   "license": "MIT",

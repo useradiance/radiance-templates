@@ -1,11 +1,20 @@
 {
   "id": "onboarding-flow",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "title": "Onboarding flow",
   "description": "Post-signup multi-step onboarding using theme Onboarding primitives, with MMKV completion flag and route gate.",
   "side": "app",
-  "capabilities": ["onboarding", "first-run", "walkthrough", "welcome-flow"],
-  "requires": ["theme", "navigation", "i18n"],
+  "capabilities": [
+    "onboarding",
+    "first-run",
+    "walkthrough",
+    "welcome-flow"
+  ],
+  "requires": [
+    "theme",
+    "navigation",
+    "i18n"
+  ],
   "dependencies": {},
   "wire": {
     "providers": [
