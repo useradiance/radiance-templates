@@ -15,19 +15,12 @@
     "upload-progress",
     "url-cache"
   ],
-  "requires": [
-    "i18n",
-    "theme",
-    "auth"
-  ],
+  "requires": ["i18n", "theme", "auth"],
   "dependencies": {
     "expo-image-picker": "~57.0.15"
   },
   "firebase": {
-    "services": [
-      "firebasestorage.googleapis.com",
-      "storage.googleapis.com"
-    ],
+    "services": ["firebasestorage.googleapis.com", "storage.googleapis.com"],
     "emulators": {
       "storage": {
         "port": 9199

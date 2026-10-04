@@ -59,9 +59,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     // reads location.pathname, so without a baseUrl it treats that prefix as a
     // route, finds nothing, and renders +not-found — and every absolute asset
     // URL misses. Unset for local dev and for apps served from a domain root.
-    ...(process.env.EXPO_PUBLIC_BASE_PATH
-      ? { baseUrl: process.env.EXPO_PUBLIC_BASE_PATH }
-      : {}),
+    ...(process.env.EXPO_PUBLIC_BASE_PATH ? { baseUrl: process.env.EXPO_PUBLIC_BASE_PATH } : {}),
   },
   extra: {
     appVariant: APP_VARIANT,

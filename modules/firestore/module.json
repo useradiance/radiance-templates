@@ -16,19 +16,13 @@
     "sync-status",
     "rnfirebase-firestore"
   ],
-  "requires": [
-    "i18n",
-    "theme"
-  ],
+  "requires": ["i18n", "theme"],
   "dependencies": {},
   "options": {
     "nativePersistence": {
       "description": "Native cache strategy. `rnfirebase` enables cross-restart disk persistence (dev client).",
       "type": "single",
-      "choices": [
-        "memory",
-        "rnfirebase"
-      ],
+      "choices": ["memory", "rnfirebase"],
       "default": "memory"
     }
   },
@@ -45,10 +39,7 @@
     }
   },
   "firebase": {
-    "services": [
-      "firestore.googleapis.com",
-      "firebaserules.googleapis.com"
-    ],
+    "services": ["firestore.googleapis.com", "firebaserules.googleapis.com"],
     "emulators": {
       "firestore": {
         "port": 8080

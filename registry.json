@@ -6,12 +6,7 @@
     "id": "expo-app",
     "path": "scaffold/expo-app",
     "version": "0.2.5",
-    "requiredModules": [
-      "i18n",
-      "theme",
-      "navigation",
-      "settings"
-    ]
+    "requiredModules": ["i18n", "theme", "navigation", "settings"]
   },
   "starters": [
     {
@@ -39,12 +34,7 @@
         "onboarding-flow",
         "demo-data"
       ],
-      "capabilities": [
-        "booking",
-        "appointments",
-        "scheduling",
-        "reservations"
-      ],
+      "capabilities": ["booking", "appointments", "scheduling", "reservations"],
       "defaults": {
         "themePack": "bloom"
       }
@@ -74,12 +64,7 @@
         "functions",
         "demo-data"
       ],
-      "capabilities": [
-        "community",
-        "forum",
-        "channels",
-        "discussion"
-      ],
+      "capabilities": ["community", "forum", "channels", "discussion"],
       "defaults": {
         "themePack": "violet"
       }
@@ -190,12 +175,7 @@
         "functions",
         "demo-data"
       ],
-      "capabilities": [
-        "events",
-        "rsvp",
-        "tickets",
-        "event-list"
-      ],
+      "capabilities": ["events", "rsvp", "tickets", "event-list"],
       "defaults": {
         "themePack": "flare"
       }
@@ -219,12 +199,7 @@
         "analytics",
         "hosting"
       ],
-      "capabilities": [
-        "habits",
-        "streaks",
-        "check-in",
-        "daily-goals"
-      ],
+      "capabilities": ["habits", "streaks", "check-in", "daily-goals"],
       "defaults": {
         "themePack": "citrus"
       }
@@ -249,13 +224,7 @@
         "analytics",
         "landing"
       ],
-      "capabilities": [
-        "local-business",
-        "store-locator",
-        "contact",
-        "hours",
-        "directory"
-      ],
+      "capabilities": ["local-business", "store-locator", "contact", "hours", "directory"],
       "defaults": {
         "themePack": "grove"
       }
@@ -285,13 +254,7 @@
         "functions",
         "demo-data"
       ],
-      "capabilities": [
-        "marketplace",
-        "listings",
-        "buy-sell",
-        "classifieds",
-        "two-sided"
-      ],
+      "capabilities": ["marketplace", "listings", "buy-sell", "classifieds", "two-sided"],
       "defaults": {
         "themePack": "hearth"
       }
@@ -320,13 +283,7 @@
         "hosting",
         "demo-data"
       ],
-      "capabilities": [
-        "messaging",
-        "chat",
-        "dm",
-        "inbox",
-        "conversations"
-      ],
+      "capabilities": ["messaging", "chat", "dm", "inbox", "conversations"],
       "defaults": {
         "themePack": "ocean"
       }
@@ -588,14 +545,7 @@
         "phone-auth",
         "sms-auth"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "navigation",
-        "firestore",
-        "forms",
-        "callable-client"
-      ],
+      "requires": ["i18n", "theme", "navigation", "firestore", "forms", "callable-client"],
       "conflicts": []
     },
     {
@@ -605,17 +555,8 @@
       "title": "Barcode scanner",
       "description": "Camera barcode / QR scanner plus QrCode display for tickets and invites.",
       "side": "app",
-      "capabilities": [
-        "barcode",
-        "qr-code",
-        "scanner",
-        "inventory-scan",
-        "ticket-scan"
-      ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["barcode", "qr-code", "scanner", "inventory-scan", "ticket-scan"],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -633,10 +574,7 @@
         "local-auth",
         "app-lock"
       ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -655,11 +593,7 @@
         "availability",
         "rrule"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "firestore"
-      ],
+      "requires": ["i18n", "theme", "firestore"],
       "conflicts": []
     },
     {
@@ -669,15 +603,8 @@
       "title": "Typed callable client",
       "description": "Typed wrappers around httpsCallable with translated error codes, retries, selective emulator flags, logging and logout events on unauthenticated failures.",
       "side": "app",
-      "capabilities": [
-        "callable-client",
-        "api-client",
-        "api-errors",
-        "backend-calls"
-      ],
-      "requires": [
-        "i18n"
-      ],
+      "capabilities": ["callable-client", "api-client", "api-errors", "backend-calls"],
+      "requires": ["i18n"],
       "conflicts": []
     },
     {
@@ -687,17 +614,8 @@
       "title": "Shopping cart",
       "description": "MMKV-persisted cart with variant-aware lines, CartLineRow UI, totals, and helpers. Pair with stripe for checkout.",
       "side": "app",
-      "capabilities": [
-        "cart",
-        "shopping-cart",
-        "basket",
-        "line-items",
-        "mmkv-cart"
-      ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["cart", "shopping-cart", "basket", "line-items", "mmkv-cart"],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -717,14 +635,7 @@
         "realtime-chat",
         "attachments"
       ],
-      "requires": [
-        "auth",
-        "firestore",
-        "i18n",
-        "theme",
-        "navigation",
-        "storage"
-      ],
+      "requires": ["auth", "firestore", "i18n", "theme", "navigation", "storage"],
       "conflicts": []
     },
     {
@@ -734,20 +645,8 @@
       "title": "Comments",
       "description": "Polymorphic comments on any parent path with list UI, owner cascade delete, and push to the parent author.",
       "side": "both",
-      "capabilities": [
-        "comments",
-        "discussion",
-        "replies",
-        "threaded-comments",
-        "feedback"
-      ],
-      "requires": [
-        "auth",
-        "firestore",
-        "forms",
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["comments", "discussion", "replies", "threaded-comments", "feedback"],
+      "requires": ["auth", "firestore", "forms", "i18n", "theme"],
       "conflicts": []
     },
     {
@@ -757,16 +656,8 @@
       "title": "Connectivity banner",
       "description": "Online/offline NetInfo banner for network loss beyond Firestore sync state.",
       "side": "app",
-      "capabilities": [
-        "connectivity",
-        "offline",
-        "network-status",
-        "offline-banner"
-      ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["connectivity", "offline", "network-status", "offline-banner"],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -776,19 +667,8 @@
       "title": "Privacy consent",
       "description": "Analytics / ATT consent gate with MMKV persistence and a web cookie-style banner component.",
       "side": "app",
-      "capabilities": [
-        "consent",
-        "privacy",
-        "gdpr",
-        "att",
-        "cookie-banner",
-        "analytics-consent"
-      ],
-      "requires": [
-        "analytics",
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["consent", "privacy", "gdpr", "att", "cookie-banner", "analytics-consent"],
+      "requires": ["analytics", "i18n", "theme"],
       "conflicts": []
     },
     {
@@ -798,16 +678,8 @@
       "title": "Crash reporting",
       "description": "Firebase Crashlytics for iOS and Android through React Native Firebase, with a no-op web implementation and error-boundary reporting.",
       "side": "app",
-      "capabilities": [
-        "crashlytics",
-        "crash-reporting",
-        "error-reporting",
-        "stability"
-      ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["crashlytics", "crash-reporting", "error-reporting", "stability"],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -817,15 +689,8 @@
       "title": "Deep linking",
       "description": "Scheme and universal-link helpers that map incoming URLs and notification payloads to Expo Router navigations.",
       "side": "app",
-      "capabilities": [
-        "deep-linking",
-        "universal-links",
-        "app-links",
-        "notification-routing"
-      ],
-      "requires": [
-        "navigation"
-      ],
+      "capabilities": ["deep-linking", "universal-links", "app-links", "notification-routing"],
+      "requires": ["navigation"],
       "conflicts": []
     },
     {
@@ -835,21 +700,8 @@
       "title": "Demo data",
       "description": "Optional first-run seed so starters look alive. Gated by EXPO_PUBLIC_SEED_DEMO; not for production catalogues.",
       "side": "both",
-      "capabilities": [
-        "demo-data",
-        "seed",
-        "sample-data",
-        "fixture-data",
-        "demo-content"
-      ],
-      "requires": [
-        "i18n",
-        "theme",
-        "auth",
-        "firestore",
-        "callable-client",
-        "functions"
-      ],
+      "capabilities": ["demo-data", "seed", "sample-data", "fixture-data", "demo-content"],
+      "requires": ["i18n", "theme", "auth", "firestore", "callable-client", "functions"],
       "conflicts": []
     },
     {
@@ -866,9 +718,7 @@
         "send-email",
         "notifications-email"
       ],
-      "requires": [
-        "functions"
-      ],
+      "requires": ["functions"],
       "conflicts": []
     },
     {
@@ -890,10 +740,7 @@
         "sync-status",
         "rnfirebase-firestore"
       ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -903,17 +750,8 @@
       "title": "Force update gate",
       "description": "Blocks the app when the installed version is below Remote Config min_app_version, with a themed update screen.",
       "side": "app",
-      "capabilities": [
-        "force-update",
-        "minimum-version",
-        "app-update-gate",
-        "version-check"
-      ],
-      "requires": [
-        "i18n",
-        "theme",
-        "remote-config"
-      ],
+      "capabilities": ["force-update", "minimum-version", "app-update-gate", "version-check"],
+      "requires": ["i18n", "theme", "remote-config"],
       "conflicts": []
     },
     {
@@ -923,17 +761,8 @@
       "title": "Forms (RHF + Zod)",
       "description": "react-hook-form + Zod resolvers, shared FormField wiring to theme TextField, and helpers for translating validation errors.",
       "side": "app",
-      "capabilities": [
-        "forms",
-        "validation",
-        "react-hook-form",
-        "zod",
-        "form-fields"
-      ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["forms", "validation", "react-hook-form", "zod", "form-fields"],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -964,12 +793,7 @@
       "title": "Firebase Hosting (web)",
       "description": "Static web deploys of the Expo web export to Firebase Hosting, with SPA rewrites and asset caching.",
       "side": "app",
-      "capabilities": [
-        "hosting",
-        "static-hosting",
-        "firebase-hosting",
-        "web-deploy"
-      ],
+      "capabilities": ["hosting", "static-hosting", "firebase-hosting", "web-deploy"],
       "requires": [],
       "conflicts": []
     },
@@ -1008,11 +832,7 @@
         "app-store",
         "play-billing"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "auth"
-      ],
+      "requires": ["i18n", "theme", "auth"],
       "conflicts": []
     },
     {
@@ -1022,12 +842,7 @@
       "title": "In-app review",
       "description": "Store review prompt with MMKV cooldown so users are not spammed.",
       "side": "app",
-      "capabilities": [
-        "in-app-review",
-        "store-review",
-        "ratings",
-        "app-store-review"
-      ],
+      "capabilities": ["in-app-review", "store-review", "ratings", "app-store-review"],
       "requires": [],
       "conflicts": []
     },
@@ -1038,20 +853,8 @@
       "title": "Invites",
       "description": "Invite codes with create/accept callables for workspaces and projects, plus a deep-link entry route.",
       "side": "both",
-      "capabilities": [
-        "invites",
-        "invite-codes",
-        "referrals",
-        "join-code",
-        "invitation"
-      ],
-      "requires": [
-        "auth",
-        "functions",
-        "deep-linking",
-        "callable-client",
-        "i18n"
-      ],
+      "capabilities": ["invites", "invite-codes", "referrals", "join-code", "invitation"],
+      "requires": ["auth", "functions", "deep-linking", "callable-client", "i18n"],
       "conflicts": []
     },
     {
@@ -1070,11 +873,7 @@
         "public-site",
         "homepage"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "navigation"
-      ],
+      "requires": ["i18n", "theme", "navigation"],
       "conflicts": []
     },
     {
@@ -1084,16 +883,8 @@
       "title": "Locale picker",
       "description": "Language preference in Settings with system / explicit locale switching via i18n.",
       "side": "app",
-      "capabilities": [
-        "locale-picker",
-        "language-settings",
-        "multi-language"
-      ],
-      "requires": [
-        "i18n",
-        "theme",
-        "navigation"
-      ],
+      "capabilities": ["locale-picker", "language-settings", "multi-language"],
+      "requires": ["i18n", "theme", "navigation"],
       "conflicts": []
     },
     {
@@ -1103,17 +894,8 @@
       "title": "Maps",
       "description": "Cross-platform map view (react-native-maps on native, Google Maps JS on web) with location permission helpers.",
       "side": "app",
-      "capabilities": [
-        "maps",
-        "google-maps",
-        "location",
-        "map-markers",
-        "geolocation"
-      ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["maps", "google-maps", "location", "map-markers", "geolocation"],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -1123,18 +905,8 @@
       "title": "Media picker",
       "description": "Image, document, and camera capture helpers that hand local URIs to the storage upload pipeline.",
       "side": "app",
-      "capabilities": [
-        "media-picker",
-        "image-picker",
-        "camera",
-        "document-picker",
-        "file-picker"
-      ],
-      "requires": [
-        "storage",
-        "theme",
-        "i18n"
-      ],
+      "capabilities": ["media-picker", "image-picker", "camera", "document-picker", "file-picker"],
+      "requires": ["storage", "theme", "i18n"],
       "conflicts": []
     },
     {
@@ -1151,14 +923,7 @@
         "review-queue",
         "trust-safety"
       ],
-      "requires": [
-        "roles",
-        "firestore",
-        "functions",
-        "auth",
-        "i18n",
-        "theme"
-      ],
+      "requires": ["roles", "firestore", "functions", "auth", "i18n", "theme"],
       "conflicts": []
     },
     {
@@ -1179,10 +944,7 @@
         "guest-gate",
         "app-shell"
       ],
-      "requires": [
-        "i18n",
-        "theme"
-      ],
+      "requires": ["i18n", "theme"],
       "conflicts": []
     },
     {
@@ -1192,17 +954,8 @@
       "title": "Onboarding flow",
       "description": "Post-signup multi-step onboarding using theme Onboarding primitives, with MMKV completion flag and route gate.",
       "side": "app",
-      "capabilities": [
-        "onboarding",
-        "first-run",
-        "walkthrough",
-        "welcome-flow"
-      ],
-      "requires": [
-        "theme",
-        "navigation",
-        "i18n"
-      ],
+      "capabilities": ["onboarding", "first-run", "walkthrough", "welcome-flow"],
+      "requires": ["theme", "navigation", "i18n"],
       "conflicts": []
     },
     {
@@ -1212,12 +965,7 @@
       "title": "Performance Monitoring",
       "description": "Firebase Performance Monitoring helpers for web and @react-native-firebase/perf on native.",
       "side": "app",
-      "capabilities": [
-        "performance",
-        "perf-monitoring",
-        "traces",
-        "network-monitoring"
-      ],
+      "capabilities": ["performance", "perf-monitoring", "traces", "network-monitoring"],
       "requires": [],
       "conflicts": []
     },
@@ -1236,11 +984,7 @@
         "check-in",
         "location-fence"
       ],
-      "requires": [
-        "maps",
-        "i18n",
-        "theme"
-      ],
+      "requires": ["maps", "i18n", "theme"],
       "conflicts": []
     },
     {
@@ -1250,18 +994,8 @@
       "title": "Presence",
       "description": "Online / last-seen heartbeat written to Firestore presence/{uid} while the app is foregrounded.",
       "side": "app",
-      "capabilities": [
-        "presence",
-        "online-status",
-        "last-seen",
-        "heartbeat",
-        "active-now"
-      ],
-      "requires": [
-        "auth",
-        "firestore",
-        "i18n"
-      ],
+      "capabilities": ["presence", "online-status", "last-seen", "heartbeat", "active-now"],
+      "requires": ["auth", "firestore", "i18n"],
       "conflicts": []
     },
     {
@@ -1280,11 +1014,7 @@
         "alerts",
         "reengagement"
       ],
-      "requires": [
-        "auth",
-        "firestore",
-        "i18n"
-      ],
+      "requires": ["auth", "firestore", "i18n"],
       "conflicts": []
     },
     {
@@ -1311,21 +1041,8 @@
       "title": "Roles & custom claims",
       "description": "Admin-gated setUserClaims callable, client useClaims / RequireRole helpers, and Firestore rules helpers for request.auth.token.role.",
       "side": "both",
-      "capabilities": [
-        "roles",
-        "custom-claims",
-        "rbac",
-        "admin",
-        "permissions",
-        "authorization"
-      ],
-      "requires": [
-        "auth",
-        "functions",
-        "callable-client",
-        "i18n",
-        "theme"
-      ],
+      "capabilities": ["roles", "custom-claims", "rbac", "admin", "permissions", "authorization"],
+      "requires": ["auth", "functions", "callable-client", "i18n", "theme"],
       "conflicts": []
     },
     {
@@ -1343,11 +1060,7 @@
         "discovery",
         "filter"
       ],
-      "requires": [
-        "firestore",
-        "i18n",
-        "theme"
-      ],
+      "requires": ["firestore", "i18n", "theme"],
       "conflicts": []
     },
     {
@@ -1357,16 +1070,8 @@
       "title": "SEO & web meta",
       "description": "Expo Router Head helpers for titles, descriptions, and Open Graph tags on web exports.",
       "side": "app",
-      "capabilities": [
-        "seo",
-        "meta-tags",
-        "open-graph",
-        "web-seo",
-        "og-tags"
-      ],
-      "requires": [
-        "hosting"
-      ],
+      "capabilities": ["seo", "meta-tags", "open-graph", "web-seo", "og-tags"],
+      "requires": ["hosting"],
       "conflicts": []
     },
     {
@@ -1383,11 +1088,7 @@
         "appearance-settings",
         "settings-shell"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "navigation"
-      ],
+      "requires": ["i18n", "theme", "navigation"],
       "conflicts": []
     },
     {
@@ -1397,16 +1098,8 @@
       "title": "Share",
       "description": "Native share sheet helpers and web clipboard/URL copy with optional deep-link URL builder.",
       "side": "app",
-      "capabilities": [
-        "share",
-        "share-sheet",
-        "clipboard",
-        "social-share",
-        "invite-link"
-      ],
-      "requires": [
-        "i18n"
-      ],
+      "capabilities": ["share", "share-sheet", "clipboard", "social-share", "invite-link"],
+      "requires": ["i18n"],
       "conflicts": []
     },
     {
@@ -1427,11 +1120,7 @@
         "upload-progress",
         "url-cache"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "auth"
-      ],
+      "requires": ["i18n", "theme", "auth"],
       "conflicts": []
     },
     {
@@ -1449,13 +1138,7 @@
         "webhooks",
         "ecommerce-payments"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "auth",
-        "callable-client",
-        "functions"
-      ],
+      "requires": ["i18n", "theme", "auth", "callable-client", "functions"],
       "conflicts": []
     },
     {
@@ -1473,13 +1156,7 @@
         "billing-portal",
         "saas-billing"
       ],
-      "requires": [
-        "i18n",
-        "theme",
-        "auth",
-        "callable-client",
-        "functions"
-      ],
+      "requires": ["i18n", "theme", "auth", "callable-client", "functions"],
       "conflicts": []
     },
     {
@@ -1526,9 +1203,7 @@
         "fonts",
         "haptics"
       ],
-      "requires": [
-        "i18n"
-      ],
+      "requires": ["i18n"],
       "conflicts": []
     }
   ]

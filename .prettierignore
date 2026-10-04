@@ -1,0 +1,3 @@
+# Intentionally invalid TypeScript until `radiance add` substitutes
+# `{{radiance.option.*}}` with true/false literals.
+modules/auth/files/lib/auth-config.ts

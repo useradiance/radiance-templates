@@ -24,46 +24,23 @@
     "phone-auth",
     "sms-auth"
   ],
-  "requires": [
-    "i18n",
-    "theme",
-    "navigation",
-    "firestore",
-    "forms",
-    "callable-client"
-  ],
+  "requires": ["i18n", "theme", "navigation", "firestore", "forms", "callable-client"],
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0"
   },
-  "overrides": [
-    "lib/registry/session.ts",
-    "app/(auth)/sign-in.tsx"
-  ],
+  "overrides": ["lib/registry/session.ts", "app/(auth)/sign-in.tsx"],
   "options": {
     "providers": {
       "description": "Sign-in methods to enable.",
       "type": "multi",
-      "choices": [
-        "email",
-        "google",
-        "apple",
-        "anonymous",
-        "phone"
-      ],
-      "default": [
-        "email",
-        "google",
-        "apple"
-      ],
+      "choices": ["email", "google", "apple", "anonymous", "phone"],
+      "default": ["email", "google", "apple"],
       "min": 1
     },
     "enforceEmailVerification": {
       "description": "When true, sensitive callables and session.isEmailSatisfied require a verified email.",
       "type": "single",
-      "choices": [
-        "true",
-        "false"
-      ],
+      "choices": ["true", "false"],
       "default": "false"
     }
   },
@@ -71,9 +48,7 @@
     "providers": {
       "email": {
         "firebase": {
-          "authProviders": [
-            "password"
-          ]
+          "authProviders": ["password"]
         }
       },
       "google": {
@@ -99,9 +74,7 @@
           }
         },
         "firebase": {
-          "authProviders": [
-            "google.com"
-          ]
+          "authProviders": ["google.com"]
         },
         "files": "variants/google"
       },
@@ -111,25 +84,19 @@
           "expo-crypto": "~57.0.1"
         },
         "firebase": {
-          "authProviders": [
-            "apple.com"
-          ]
+          "authProviders": ["apple.com"]
         },
         "files": "variants/apple"
       },
       "anonymous": {
         "firebase": {
-          "authProviders": [
-            "anonymous"
-          ]
+          "authProviders": ["anonymous"]
         }
       },
       "phone": {
         "dependencies": {},
         "firebase": {
-          "authProviders": [
-            "phone"
-          ]
+          "authProviders": ["phone"]
         },
         "files": "variants/phone"
       }
@@ -182,10 +149,7 @@
     ]
   },
   "firebase": {
-    "services": [
-      "identitytoolkit.googleapis.com",
-      "firestore.googleapis.com"
-    ],
+    "services": ["identitytoolkit.googleapis.com", "firestore.googleapis.com"],
     "emulators": {
       "auth": {
         "port": 9099
@@ -194,11 +158,7 @@
     "rules": {
       "firestore": "firebase/firestore.rules.fragment"
     },
-    "functions": [
-      "onUserCreated",
-      "onUserSignedIn",
-      "deleteAccount"
-    ]
+    "functions": ["onUserCreated", "onUserSignedIn", "deleteAccount"]
   },
   "notes": [
     "Pick providers with `radiance add auth --option providers=email,google,anonymous`.",
