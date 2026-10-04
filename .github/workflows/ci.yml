@@ -1,0 +1,121 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # The catalogue can break without anyone touching it: a starter pins semver
+  # ranges, so a dependency published upstream can stop it typechecking.
+  schedule:
+    - cron: "0 6 * * 1"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  catalogue:
+    name: registry + format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --no-audit --no-fund
+      # Fails if registry.json disagrees with the modules and starters on disk.
+      - run: npm run registry:check
+      - run: npm test
+      - run: npm run format:check
+
+  versions:
+    name: tag == package.json == registry.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Versions agree
+        run: |
+          pkg=$(node -p "require('./package.json').version")
+          reg=$(node -p "require('./registry.json').version")
+          echo "package.json=$pkg registry.json=$reg"
+          if [ "$pkg" != "$reg" ]; then
+            echo "::error::package.json ($pkg) and registry.json ($reg) disagree"
+            exit 1
+          fi
+      # The CLI resolves the catalogue by cloning a semver TAG. A tag whose
+      # contents claim a different version is how a user ends up with a
+      # catalogue that is not the one they asked for.
+      - name: Tag matches, when this is a tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tag="${GITHUB_REF#refs/tags/v}"
+          pkg=$(node -p "require('./package.json').version")
+          if [ "$tag" != "$pkg" ]; then
+            echo "::error::tag v$tag does not match package.json $pkg"
+            exit 1
+          fi
+
+  scaffold:
+    name: ${{ matrix.starter }}
+    runs-on: ubuntu-latest
+    # One starter failing should not hide the state of the other twelve.
+    continue-on-error: false
+    strategy:
+      fail-fast: false
+      matrix:
+        starter:
+          - booking
+          - community
+          - content
+          - e-commerce
+          - events
+          - habits
+          - local-business
+          - marketplace
+          - messaging-app
+          - productivity
+          - saas
+          - social-app
+          - warehouse
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The published CLI, because that is what a user runs. The catalogue under
+      # test is THIS checkout (RADIANCE_TEMPLATES_PATH), not the published tag —
+      # otherwise a pull request would be validated against already-released
+      # content and prove nothing about the change.
+      - run: npm install -g radiance-cli
+      - run: radiance --version
+
+      - name: Scaffold ${{ matrix.starter }}
+        env:
+          RADIANCE_TEMPLATES_PATH: ${{ github.workspace }}
+          CI: "1"
+        run: |
+          radiance init /tmp/app -y \
+            --template "${{ matrix.starter }}" \
+            --no-git --no-firebase --no-install --demo
+
+      - name: Install dependencies
+        working-directory: /tmp/app
+        # npm_config_* is scrubbed for the same reason the workers scrub it: a
+        # runner-level npm config must not change how a user's project installs.
+        run: |
+          for v in $(env | grep -o '^npm_config_[^=]*'); do unset "$v"; done
+          npm install --no-audit --no-fund
+
+      # The whole point of this matrix. A starter that does not typecheck is a
+      # broken first experience, and nothing else in CI catches it.
+      - name: Typecheck
+        working-directory: /tmp/app
+        run: npx tsc --noEmit
+
+      - name: Expo dependency versions are consistent
+        working-directory: /tmp/app
+        run: npx expo install --check

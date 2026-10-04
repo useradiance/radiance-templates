@@ -1,7 +1,25 @@
-# radiance-templates
+<p align="center">
+  <img src=".github/radiance-mark.svg" width="72" height="72" alt="">
+</p>
 
-The catalogue behind [Radiance](https://github.com/useradiance/radiance-cli): one Expo scaffold,
-a set of composable feature modules, and starters that combine them into working apps.
+<h1 align="center">radiance-templates</h1>
+
+<p align="center">
+  The catalogue behind <b>Radiance</b>: one Expo scaffold, 47 composable feature modules,
+  and 13 starters that combine them into working apps for iOS, Android and web.
+</p>
+
+<p align="center">
+  <a href="https://radianc.es">radianc.es</a> ·
+  <a href="https://github.com/useradiance/radiance-cli">radiance-cli</a> ·
+  <a href="https://www.npmjs.com/package/radiance-cli">npm</a>
+</p>
+
+---
+
+Consumed by [`radiance-cli`](https://github.com/useradiance/radiance-cli), which clones a
+semver tag of this repository — anonymously, with no credentials — so it stays public. The
+hosted product at [radianc.es](https://radianc.es) resolves the same tags you do.
 
 ```text
 scaffold/expo-app     the generic Expo + Firebase shell (exactly one)
